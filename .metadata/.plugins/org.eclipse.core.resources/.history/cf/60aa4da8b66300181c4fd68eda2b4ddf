@@ -1,0 +1,6 @@
+package parent;
+
+
+public interface ParentDAO {
+	public Parent findByEtid(java.lang.String pid);
+}

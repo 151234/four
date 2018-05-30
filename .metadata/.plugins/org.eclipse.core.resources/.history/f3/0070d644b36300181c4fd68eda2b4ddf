@@ -1,0 +1,9 @@
+package exam;
+
+public class Exam {
+	private String eid;
+	private String tid;
+	private String bid;
+	private String etime;
+	
+}

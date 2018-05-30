@@ -1,0 +1,8 @@
+package parent;
+
+public class Parent {
+	private String pid;
+	private String sid;
+	private String pname;
+	
+}

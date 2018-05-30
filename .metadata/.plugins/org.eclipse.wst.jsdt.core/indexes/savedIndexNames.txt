@@ -1,0 +1,4 @@
+INDEX VERSION 1.122+D:\大学\面向对象\four\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1067094681.index
+2055475161.index
+814302557.index

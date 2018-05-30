@@ -1,0 +1,6 @@
+package exam;
+
+
+public interface ExamDAO {
+	public Exam findByBid(java.lang.String eid);
+}

@@ -1,0 +1,5 @@
+package gradedetail;
+
+public interface GradedetailDAO {
+
+}

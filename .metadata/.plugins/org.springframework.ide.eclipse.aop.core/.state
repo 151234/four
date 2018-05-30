@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="src"/>
+<aop-project name="exa4">
+<aspect-definition adivce-method-parameter-types="org.aopalliance.intercept.MethodInvocation" advice-class-name="org.springframework.transaction.interceptor.TransactionInterceptor" advice-method-name="invoke" advice-type="AROUND" aspect-end-line-number="148" aspect-name="org.springframework.transaction.interceptor.TransactionInterceptor#exa4#src/abc.xml#148" aspect-start-line-number="148" factory-id="org.springframework.ide.eclipse.aop.core.javaAdvisorDefinitionElementFactory" file="/exa4/src/abc.xml" pointcut-expression="(@within(org.springframework.transaction.annotation.Transactional) || @annotation(org.springframework.transaction.annotation.Transactional)) &amp;&amp; execution(* *..*(..))" proxy-target-class="false">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:exa4|3:src/abc.xml|7:context:component-scan:19|8:helloController:19" bean-file="/exa4/src/abc.xml" bean-start-line="19" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/exa4/src/abc.xml" source="=exa4/C:\/Users\/asus\/AppData\/Local\/Genuitec\/MyEclipse 10\/configuration\/org.eclipse.osgi\/bundles\/98\/1\/.cp\/data\/3.0\/lib\/persistCore\/org.springframework.transaction-3.0.5.RELEASE.jar&lt;org.springframework.transaction.interceptor(TransactionInterceptor.class[TransactionInterceptor~invoke~Lorg.aopalliance.intercept.MethodInvocation;" source-start-line="-1" target="=exa4/src&lt;testmvc{HelloController.java[HelloController~kaike~QHttpServletRequest;~QModelMap;" target-start-line="1138"/>
+</aspect-definition>
+</aop-project>
+</aop-reference-model>
