@@ -41,7 +41,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html;charset=utf-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -77,11 +77,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t-->\r\n");
       out.write("  </head>\r\n");
       out.write("  \r\n");
-      out.write("  <body>\r\n");
-      out.write("   面向对象 <br>\r\n");
-      out.write("   <form action=\"home\">\r\n");
-      out.write("  \r\n");
-      out.write("   <input type=\"submit\" value=\"确认开课\"> </form>\r\n");
+      out.write("   <body style=\"background:url(images/2.jpg)\" background-repeat:no-repeat ;\r\n");
+      out.write("background-size:100% 100%; \r\n");
+      out.write("background-attachment: fixed;\">\r\n");
+      out.write("<div id=\"div_login\" style=\"position:absolute; width:500px; height:305px;z-index:1;left:780px;top:250px;\r\n");
+      out.write("     \">\r\n");
+      out.write("  <table  border=\"0\" cellpadding=\"2\" cellspacing=\"0\">\r\n");
+      out.write("  <caption align=\"center\"><h2>四则运算系统登陆</h2></caption>\r\n");
+      out.write("   <form action=\"login.action\" method=\"post\">\r\n");
+      out.write("     <tr><th>用户名:</th><td><input type=\"text\" name=\"username\"></td></tr>\r\n");
+      out.write("          <tr><th> 密码       :</th><td><input type=\"password\" name=\"pass\"></td></tr>   \r\n");
+      out.write("          <tr><th> 请输入验证码:   </th><td><input type=\"text\" name=\"checkma\"></td>       \r\n");
+      out.write("          <td><img alt=\"\" src=\"yanzheng.jsp\"></td></tr> \r\n");
+      out.write("      <tr><th><input type=\"submit\" value=\"登陆\"></th>\r\n");
+      out.write("    <th><input type=\"reset\" value=\"重置\"></th></tr> \r\n");
+      out.write("    <tr><th ><a style=\"display:block;text-align:center\" href=\"regist.jsp\">还没有帐号？点击这里</a> </tr></tr>\r\n");
+      out.write("                                      \r\n");
+      out.write("    </form>\r\n");
+      out.write("  </table>\r\n");
+      out.write("  </div>\r\n");
       out.write("  </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

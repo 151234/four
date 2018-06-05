@@ -30,4 +30,8 @@
 		<item value="false" key="RemoveFinal"/>
 		<item value="false" key="SortOrdering"/>
 	</section>
+	<section name="NewJspCreationWizardPage">
+		<item value="Default JSP template" key="templatezh_CN"/>
+		<item value="/src/WebRoot" key="filePath"/>
+	</section>
 </section>

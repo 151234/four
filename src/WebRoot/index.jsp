@@ -27,7 +27,7 @@ background-attachment: fixed;">
      ">
   <table  border="0" cellpadding="2" cellspacing="0">
   <caption align="center"><h2>四则运算系统登陆</h2></caption>
-   <form action="login" method="post">
+   <form action="login.action" method="post">
      <tr><th>用户名:</th><td><input type="text" name="username"></td></tr>
           <tr><th> 密码       :</th><td><input type="password" name="pass"></td></tr>   
           <tr><th> 请输入验证码:   </th><td><input type="text" name="checkma"></td>       

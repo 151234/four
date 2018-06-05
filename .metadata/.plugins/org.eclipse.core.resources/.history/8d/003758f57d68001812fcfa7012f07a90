@@ -1,0 +1,59 @@
+package testmvc;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import account.Account;
+import account.AccountDAO;
+
+
+
+
+
+@Controller
+public class HelloController {
+	
+	@Resource
+	AccountDAO adao;
+
+	@RequestMapping("/login.do")
+	public String Homepage(HttpServletRequest request,ModelMap map)
+	{
+		Account a = new Account();
+		String username = request.getParameter("username");
+		String pass = request.getParameter("pass");
+		String codein = request.getParameter("checkma");
+		String code = (String)request.getSession().getAttribute("code");
+		if(!codein.endsWith(code)){
+			request.getSession().setAttribute("loginErr", "—È÷§¬Î ‰»Î¥ÌŒÛ");
+			return "loginError";
+		}	
+		else{
+			a = adao.findByid(username);
+			if(a==null){
+				request.getSession().setAttribute("loginErr", "’À∫≈≤ª¥Ê‘⁄");
+				return "loginError";
+			}
+			else
+				if(!a.getPassword().equals(pass)){
+					request.getSession().setAttribute("loginErr", "√‹¬Î¥ÌŒÛ");
+					return "loginError";
+				}
+		}
+			
+		request.getSession().setAttribute("user", a);
+		return "test";
+	}
+}

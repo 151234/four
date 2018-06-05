@@ -1,5 +1,3 @@
 INDEX VERSION 1.126
 D:\大学\面向对象\four\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2055475161.index
 \src\src
-D:\大学\面向对象\four\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3978206267.index
-\exa4\src

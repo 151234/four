@@ -2,4 +2,19 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="account.AccountDAO"/>
 <fullyQualifiedTypeName name="account.Account"/>
+<fullyQualifiedTypeName name="student.StudentDAO"/>
+<fullyQualifiedTypeName name="teacher.TeacherDAO"/>
+<fullyQualifiedTypeName name="teacher.Teacher"/>
+<fullyQualifiedTypeName name="parent.Parent"/>
+<fullyQualifiedTypeName name="parent.ParentDAO"/>
+<fullyQualifiedTypeName name="student.Student"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="tool.studentTool"/>
+<fullyQualifiedTypeName name="banji.BanjiDAO"/>
+<fullyQualifiedTypeName name="banji.Banji"/>
+<fullyQualifiedTypeName name="exam.ExamDAO"/>
+<fullyQualifiedTypeName name="exam.Exam"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="examdetail.Examdetail"/>
+<fullyQualifiedTypeName name="examdetail.ExamdetailDAO"/>
 </qualifiedTypeNameHistroy>

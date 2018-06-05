@@ -7,5 +7,7 @@
      <select id="findByEid" parameterType="java.lang.String" resultType="Exam">
      select * from exam where eid = #{0}  
      </select>
-     
+     <select id="findByBid" parameterType="java.lang.String" resultType="Exam">
+     select * from exam where bid = #{0}  
+     </select>
  </mapper>

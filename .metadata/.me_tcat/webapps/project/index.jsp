@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,10 +20,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
   </head>
   
-  <body>
-   面向对象 <br>
-   <form action="home">
-  
-   <input type="submit" value="确认开课"> </form>
+   <body style="background:url(images/2.jpg)" background-repeat:no-repeat ;
+background-size:100% 100%; 
+background-attachment: fixed;">
+<div id="div_login" style="position:absolute; width:500px; height:305px;z-index:1;left:780px;top:250px;
+     ">
+  <table  border="0" cellpadding="2" cellspacing="0">
+  <caption align="center"><h2>四则运算系统登陆</h2></caption>
+   <form action="login.action" method="post">
+     <tr><th>用户名:</th><td><input type="text" name="username"></td></tr>
+          <tr><th> 密码       :</th><td><input type="password" name="pass"></td></tr>   
+          <tr><th> 请输入验证码:   </th><td><input type="text" name="checkma"></td>       
+          <td><img alt="" src="yanzheng.jsp"></td></tr> 
+      <tr><th><input type="submit" value="登陆"></th>
+    <th><input type="reset" value="重置"></th></tr> 
+    <tr><th ><a style="display:block;text-align:center" href="regist.jsp">还没有帐号？点击这里</a> </tr></tr>
+                                      
+    </form>
+  </table>
+  </div>
   </body>
 </html>
