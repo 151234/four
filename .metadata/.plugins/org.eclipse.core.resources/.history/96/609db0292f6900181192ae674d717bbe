@@ -97,7 +97,7 @@ public class HelloController {
 				st.setHaveBanji(true);
 				st.setBj(bj);
 				List<Exam> e = (List<Exam>)edao.findByBid(bj.getBid());
-				st.setExam(e);
+				System.out.println(e.get(0).getEid());
 			}	
 			request.getSession().setAttribute("student", st);
 			return "Slogin";

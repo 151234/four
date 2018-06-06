@@ -66,11 +66,11 @@ public class HelloController {
 		String pass = request.getParameter("pass");
 		String codein = request.getParameter("checkma");
 		String code = (String)request.getSession().getAttribute("code");
-		if(!codein.endsWith(code)){//验证码验证
+		if(!codein.endsWith(code)){
 			request.getSession().setAttribute("loginErr", "验证码输入错误");
 			return "loginError";
 		}	
-		else{//账号密码验证
+		else{
 			a = adao.findByid(username);
 			if(a==null){
 				request.getSession().setAttribute("loginErr", "账号不存在");
@@ -82,7 +82,7 @@ public class HelloController {
 					return "loginError";
 				}
 		}
-		if(a.getIdentify()==1){//学生
+		if(a.getIdentify()==1){
 			studentTool st = new studentTool();
 			Student s = sdao.findBySid(username);
 			Banji bj = bjdao.findByBid(s.getBid());
@@ -97,17 +97,16 @@ public class HelloController {
 				st.setHaveBanji(true);
 				st.setBj(bj);
 				List<Exam> e = (List<Exam>)edao.findByBid(bj.getBid());
-				st.setExam(e);
 			}	
 			request.getSession().setAttribute("student", st);
 			return "Slogin";
 		}
-		else if(a.getIdentify()==1){//教师
+		else if(a.getIdentify()==1){
 			Teacher t = tdao.findByTid(username);
 			request.getSession().setAttribute("teacher", t);
 			return "Tlogin";
 		}
-		else{//家长
+		else{
 			Parent p = pdao.findByPid(username);
 			request.getSession().setAttribute("parent", p);
 			return "Plogin";

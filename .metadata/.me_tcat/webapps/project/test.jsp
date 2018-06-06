@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,account.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,account.*,tool.*,exam.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,7 +23,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <%Account a = (Account)session.getAttribute("user"); %>
-    <%=a.getUid() %> <br>
+  <%studentTool st = (studentTool)session.getAttribute("student"); %>
+    <%=st.getS().getSname() %>
+    <%=st.getBj().getBname() %>
+    <%=st.getSidenty() %>
+    <%=st.isHaveBanji() %>
+    <%for(int i=0;i<st.getExam().size();i++){
+    System.out.println(i);
+    	%><%=st.getExam().get(i).getEid()%><%
+    }
+     %>
+     <br>
   </body>
 </html>

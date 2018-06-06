@@ -5,6 +5,8 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.*;
 import account.*;
+import tool.*;
+import exam.*;
 
 public final class test_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -82,11 +84,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("  \r\n");
       out.write("  <body>\r\n");
       out.write("  ");
-Account a = (Account)session.getAttribute("user"); 
+studentTool st = (studentTool)session.getAttribute("student"); 
       out.write("\r\n");
       out.write("    ");
-      out.print(a.getUid() );
-      out.write(" <br>\r\n");
+      out.print(st.getS().getSname() );
+      out.write("\r\n");
+      out.write("    ");
+      out.print(st.getBj().getBname() );
+      out.write("\r\n");
+      out.write("    ");
+      out.print(st.getSidenty() );
+      out.write("\r\n");
+      out.write("    ");
+      out.print(st.isHaveBanji() );
+      out.write("\r\n");
+      out.write("    ");
+for(int i=0;i<st.getExam().size();i++){
+    System.out.println(i);
+    	
+      out.print(st.getExam().get(i).getEid());
+
+    }
+     
+      out.write("\r\n");
+      out.write("     <br>\r\n");
       out.write("  </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

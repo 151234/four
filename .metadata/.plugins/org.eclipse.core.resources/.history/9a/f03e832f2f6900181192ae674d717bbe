@@ -28,9 +28,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%=st.getBj().getBname() %>
     <%=st.getSidenty() %>
     <%=st.isHaveBanji() %>
+    <%=st.getExam().get(0).getEid() %>
     <%for(int i=0;i<st.getExam().size();i++){
     System.out.println(i);
-    	%><%=st.getExam().get(i).getEid()%><%
+    	%><%=st.getExam().get(i).getEid()%>
+    	<%=st.getExam().get(0).getEid()%><%
     }
      %>
      <br>
