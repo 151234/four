@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+
+ <mapper namespace="student.StudentDAO">
+     <!-- 查找 -->
+     <select id="findBySid" parameterType="java.lang.String" resultType="student">
+     select * from student where sid = #{0}
+     </select>
+      <insert id="add" parameterType="Student">    
+        insert into student(sid,pid,bid,sname,xdNumber)   
+        values(#{sid},#{pid},#{bid},#{sname},#{xdNumber})    
+    </insert>
+ </mapper>

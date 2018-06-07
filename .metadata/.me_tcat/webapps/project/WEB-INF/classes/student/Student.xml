@@ -8,7 +8,10 @@
      select * from student where sid = #{0}
      </select>
       <insert id="add" parameterType="Student">    
-        insert into student(sid,pid,bid,sname,xdNumber)   
-        values(#{sid},#{pid},#{bid},#{sname},#{xdNumber})    
+        insert into student(sid,pid,sname,xdNumber)   
+        values(#{sid},#{pid},#{sname},#{xdNumber})    
     </insert>
+    <update id="joinclass" parameterType="java.lang.String" >    
+        update student set bid = #{0} where sid = #{1}
+    </update>
  </mapper>

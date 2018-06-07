@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="account.Account"/>
 <fullyQualifiedTypeName name="student.StudentDAO"/>
 <fullyQualifiedTypeName name="teacher.TeacherDAO"/>
-<fullyQualifiedTypeName name="teacher.Teacher"/>
 <fullyQualifiedTypeName name="parent.Parent"/>
 <fullyQualifiedTypeName name="parent.ParentDAO"/>
 <fullyQualifiedTypeName name="student.Student"/>
@@ -14,7 +13,10 @@
 <fullyQualifiedTypeName name="banji.Banji"/>
 <fullyQualifiedTypeName name="exam.ExamDAO"/>
 <fullyQualifiedTypeName name="exam.Exam"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="examdetail.Examdetail"/>
 <fullyQualifiedTypeName name="examdetail.ExamdetailDAO"/>
+<fullyQualifiedTypeName name="sb.SbDAO"/>
+<fullyQualifiedTypeName name="sb.Sb"/>
+<fullyQualifiedTypeName name="teacher.Teacher"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

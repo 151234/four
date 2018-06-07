@@ -1,6 +1,0 @@
-package account;
-
-
-public class AccountDAO {
-	public Account findByid(java.lang.String aid);
-}

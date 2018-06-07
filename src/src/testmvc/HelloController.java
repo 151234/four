@@ -27,11 +27,13 @@ import banji.BanjiDAO;
 import parent.Parent;
 import parent.ParentDAO;
 
+import sb.Sb;
+import sb.SbDAO;
 import student.Student;
 import student.StudentDAO;
 import teacher.Teacher;
 import teacher.TeacherDAO;
-import tool.studentTool;
+import tool.*;
 
 import account.Account;
 import account.AccountDAO;
@@ -57,6 +59,8 @@ public class HelloController {
 	ExamDAO edao;
 	@Resource
 	ExamdetailDAO etdao;
+	@Resource
+	SbDAO sbdao;
 	
 	@RequestMapping("/login.action")
 	public String login(HttpServletRequest request,ModelMap map)
@@ -85,26 +89,44 @@ public class HelloController {
 		if(a.getIdentify()==1){//学生
 			studentTool st = new studentTool();
 			Student s = sdao.findBySid(username);
-			Banji bj = bjdao.findByBid(s.getBid());
+			List<Sb> sb = sbdao.findBySid(s.getSid());
+			List<Banji> bj = new ArrayList<Banji>();
 			st.setS(s);
 			st.setSidenty(a.getIdentify());
-			if(bj==null){
+			if(sb==null){
 				st.setHaveBanji(false);
 				st.setBj(null);
-				st.setExam(null);
 			}
 			else{
+				for(int i=0;i<sb.size();i++){
+					Banji b = bjdao.findByBid(sb.get(i).getBid());
+					bj.add(b);
+				}
 				st.setHaveBanji(true);
 				st.setBj(bj);
-				List<Exam> e = (List<Exam>)edao.findByBid(bj.getBid());
-				st.setExam(e);
 			}	
+			st.setExam(null);
+			st.setCurrentbj(null);
+			st.setEd(null);
 			request.getSession().setAttribute("student", st);
 			return "Slogin";
 		}
-		else if(a.getIdentify()==1){//教师
+		else if(a.getIdentify()==2){//教师
+			teacherTool tt = new teacherTool();
 			Teacher t = tdao.findByTid(username);
-			request.getSession().setAttribute("teacher", t);
+			List<Banji> bj = bjdao.findByTid(t.getTid());
+			if(bj==null){
+				tt.setBj(null);
+				tt.setHaveBanji(false);
+			}
+			else{
+				tt.setBj(bj);
+				tt.setHaveBanji(true);
+			}
+			tt.setT(t);
+			tt.setTidenty(a.getIdentify());
+			tt.setExam(null);
+			request.getSession().setAttribute("teacher", tt);
 			return "Tlogin";
 		}
 		else{//家长
@@ -134,10 +156,13 @@ public class HelloController {
 		ac.setPassword(pass);
 		ac.setUid(username);
 		adao.add(ac);
+		if(adao.findByid(username)==null){
+			request.getSession().setAttribute("loginErr", "用户名已存在");
+			return "loginError";
+		}
 		if(identy==1){
 			Student st=new Student();
 			st.setSid(username);
-			st.setBid(null);
 			st.setPid(null);
 			st.setSname(rname);
 			sdao.add(st);
@@ -156,5 +181,61 @@ public class HelloController {
 			tdao.add(tr);
 		}
 		return"index";
+	}
+	@RequestMapping("/joinclass.action")
+	public String joinclass(HttpServletRequest request,ModelMap map)
+	{
+		//String bid = request.getParameter("bid");
+		String bid = "B002";
+		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		Student s = st.getS();
+		if(sbdao.findBysb(s.getSid(), bid)==null){
+			Banji bj = bjdao.findByBid(bid);
+			if(bj==null){
+				request.getSession().setAttribute("loginErr", "该班级不存在");
+				return "loginError";
+			}
+			else{
+				Sb sb = new Sb();
+				sb.setBid(bid);
+				sb.setSid(s.getSid());
+				sbdao.joinclass(sb);				//加入班级，对sb表插入数据
+				Banji bj2 = bjdao.findByBid(bid);	//更新studentTool的班级列表内容
+				List<Banji> b2 = st.getBj();
+				b2.add(bj2);
+				st.setBj(b2);
+				st.setHaveBanji(true);
+				request.getSession().setAttribute("student", st);
+			}
+		}
+		else{
+			request.getSession().setAttribute("loginErr", "已加入过该班级");
+			return "loginError";
+		}
+		return "Slogin";
+	}
+	@RequestMapping("/selectclass.action")//学生进入班级
+	public String selectclass(HttpServletRequest request,ModelMap map)
+	{
+		String bid = request.getParameter("bid");
+		Banji bj = bjdao.findByBid(bid);
+		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		st.setCurrentbj(bj);
+		List<Exam> e = edao.findByBid(bid);
+		st.setExam(e);
+		request.getSession().setAttribute("student", st);
+		return "";
+	}
+	public studentTool intoclass(HttpServletRequest request,String bid)
+	{
+		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		System.out.println(bid);
+		return st;
+	}
+	@RequestMapping("/test.action")//学生进入班级
+	public String test(HttpServletRequest request,ModelMap map)
+	{
+		studentTool st = intoclass(request,"B001");
+		return "";
 	}
 }

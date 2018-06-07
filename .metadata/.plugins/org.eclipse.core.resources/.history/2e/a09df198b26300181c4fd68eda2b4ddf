@@ -1,5 +1,0 @@
-package banji;
-
-public interface BanjiDAO {
-
-}

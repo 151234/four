@@ -11,9 +11,11 @@ import examdetail.*;
 public class studentTool {
 	private Student s;
 	private int sidenty;
-	private Banji bj;
-	private boolean haveBanji;
-	private List<Exam> exam = new ArrayList<Exam>();
+	private List<Banji> bj;//所有加入的班级
+	private boolean haveBanji;//是否加入班级
+	private List<Exam> exam = new ArrayList<Exam>();//选中班级的考试
+	private Banji currentbj;//当前选中的班级
+	private Examdetail ed;//选中的考卷的内容
 	public Student getS() {
 		return s;
 	}
@@ -26,10 +28,10 @@ public class studentTool {
 	public void setSidenty(int sidenty) {
 		this.sidenty = sidenty;
 	}
-	public Banji getBj() {
+	public List<Banji> getBj() {
 		return bj;
 	}
-	public void setBj(Banji bj) {
+	public void setBj(List<Banji> bj) {
 		this.bj = bj;
 	}
 	public boolean isHaveBanji() {
@@ -43,6 +45,18 @@ public class studentTool {
 	}
 	public void setExam(List<Exam> exam) {
 		this.exam = exam;
+	}
+	public Banji getCurrentbj() {
+		return currentbj;
+	}
+	public void setCurrentbj(Banji currentbj) {
+		this.currentbj = currentbj;
+	}
+	public Examdetail getEd() {
+		return ed;
+	}
+	public void setEd(Examdetail ed) {
+		this.ed = ed;
 	}
 	
 }

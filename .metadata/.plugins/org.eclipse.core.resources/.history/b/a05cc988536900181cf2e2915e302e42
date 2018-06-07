@@ -1,0 +1,9 @@
+package sb;
+
+import java.util.List;
+
+
+public interface SbDAO {
+	public List<Sb> findBySid(java.lang.String sid);
+	public List<Sb> findByBid(java.lang.String bid);
+}

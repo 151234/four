@@ -84,29 +84,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("  \r\n");
       out.write("  <body>\r\n");
       out.write("  ");
-studentTool st = (studentTool)session.getAttribute("student"); 
+teacherTool tt = (teacherTool)session.getAttribute("teacher"); 
       out.write("\r\n");
       out.write("    ");
-      out.print(st.getS().getSname() );
+      out.print(tt.getT().getTname() );
       out.write("\r\n");
       out.write("    ");
-      out.print(st.getBj().getBname() );
+for(int i=0;i<tt.getBj().size();i++){
+      out.write("\r\n");
+      out.write("    \t");
+      out.print(tt.getBj().get(i).getBname() );
+      out.write("\r\n");
+      out.write("   ");
+ } 
       out.write("\r\n");
       out.write("    ");
-      out.print(st.getSidenty() );
+      out.print(tt.getTidenty() );
       out.write("\r\n");
       out.write("    ");
-      out.print(st.isHaveBanji() );
+      out.print(tt.isHaveBanji() );
       out.write("\r\n");
-      out.write("    ");
-for(int i=0;i<st.getExam().size();i++){
-    System.out.println(i);
-    	
-      out.print(st.getExam().get(i).getEid());
-
-    }
-     
-      out.write("\r\n");
+      out.write("    \r\n");
       out.write("     <br>\r\n");
       out.write("  </body>\r\n");
       out.write("</html>\r\n");

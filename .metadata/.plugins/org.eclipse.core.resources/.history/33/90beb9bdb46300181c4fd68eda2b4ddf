@@ -1,8 +1,0 @@
-package grade;
-
-public class Grade {
-	private String eid;
-	private String sid;
-	private int grade;
-	private float rightpercent;
-}

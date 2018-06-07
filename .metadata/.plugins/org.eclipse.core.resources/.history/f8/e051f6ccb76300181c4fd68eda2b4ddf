@@ -1,5 +1,0 @@
-package teacher;
-
-public interface TeacherDAO {
-	public Teacher findByPid(java.lang.String pid);
-}

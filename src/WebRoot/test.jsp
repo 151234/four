@@ -23,16 +23,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <%studentTool st = (studentTool)session.getAttribute("student"); %>
-    <%=st.getS().getSname() %>
-    <%=st.getBj().getBname() %>
-    <%=st.getSidenty() %>
-    <%=st.isHaveBanji() %>
-    <%for(int i=0;i<st.getExam().size();i++){
-    System.out.println(i);
-    	%><%=st.getExam().get(i).getEid()%><%
-    }
-     %>
+  <%teacherTool tt = (teacherTool)session.getAttribute("teacher"); %>
+    <%=tt.getT().getTname() %>
+    <%for(int i=0;i<tt.getBj().size();i++){%>
+    	<%=tt.getBj().get(i).getBname() %>
+   <% } %>
+    <%=tt.getTidenty() %>
+    <%=tt.isHaveBanji() %>
+    
      <br>
   </body>
 </html>

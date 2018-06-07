@@ -27,8 +27,8 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="198" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.jboss.tools.common.model.ui.editor.EditorPartWrapper" itemType="typeToolBarContribution" x="38" y="22"/>
-<coolItem id="com.genuitec.eclipse.webdesigner3.editors.jsp" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.jboss.tools.common.model.ui.editor.EditorPartWrapper" itemType="typePlaceholder" x="38" y="22"/>
+<coolItem id="com.genuitec.eclipse.webdesigner3.editors.jsp" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="com.genuitec.eclipse.springframework.springconfigeditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -50,36 +50,42 @@
 <part id="5"/>
 <part id="6"/>
 <part id="7"/>
+<part id="8"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelloController.java" partName="HelloController.java" path="D:/大学/面向对象/four/src/src/testmvc/HelloController.java" title="HelloController.java" tooltip="src/src/testmvc/HelloController.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelloController.java" partName="HelloController.java" path="D:/大学/面向对象/four/src/src/testmvc/HelloController.java" title="HelloController.java" tooltip="src/src/testmvc/HelloController.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/testmvc/HelloController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2534" selectionTopPixel="570"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3182" selectionTopPixel="405"/>
 </editor>
 <editor id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="index.jsp" partName="index.jsp" path="D:/大学/面向对象/four/src/WebRoot/index.jsp" title="index.jsp" tooltip="src/WebRoot/index.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/WebRoot/index.jsp"/>
-</editor>
-<editor id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="loginError.jsp" partName="loginError.jsp" path="D:/大学/面向对象/four/src/WebRoot/loginError.jsp" title="loginError.jsp" tooltip="src/WebRoot/loginError.jsp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/WebRoot/loginError.jsp"/>
-</editor>
-<editor id="org.jboss.tools.common.model.ui.editor.EditorPartWrapper" name="web.xml" partName="web.xml" path="D:/大学/面向对象/four/src/WebRoot/WEB-INF/web.xml" title="web.xml" tooltip="D:/大学/面向对象/four/src/WebRoot/WEB-INF/web.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.jboss.tools.common.core.resources.XModelObjectEditorInputFactory" path="/src/WebRoot/WEB-INF/web.xml"/>
 </editor>
 <editor id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="regist.jsp" partName="regist.jsp" path="D:/大学/面向对象/four/src/WebRoot/regist.jsp" title="regist.jsp" tooltip="src/WebRoot/regist.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/WebRoot/regist.jsp"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="studentTool.java" partName="studentTool.java" path="D:/大学/面向对象/four/src/src/tool/studentTool.java" title="studentTool.java" tooltip="src/src/tool/studentTool.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/tool/studentTool.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="368" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="103" selectionOffset="228" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExamDAO.java" partName="ExamDAO.java" path="D:/大学/面向对象/four/src/src/exam/ExamDAO.java" title="ExamDAO.java" tooltip="src/src/exam/ExamDAO.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/exam/ExamDAO.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="test.jsp" partName="test.jsp" path="D:/大学/面向对象/four/src/WebRoot/test.jsp" title="test.jsp" tooltip="src/WebRoot/test.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/WebRoot/test.jsp"/>
 </editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Exam.xml" partName="Exam.xml" path="D:/大学/面向对象/four/src/src/exam/Exam.xml" title="Exam.xml" tooltip="src/src/exam/Exam.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/exam/Exam.xml"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="teacherTool.java" partName="teacherTool.java" path="D:/大学/面向对象/four/src/src/tool/teacherTool.java" title="teacherTool.java" tooltip="src/src/tool/teacherTool.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/tool/teacherTool.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="745" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Banji.java" partName="Banji.java" path="D:/大学/面向对象/four/src/src/banji/Banji.java" title="Banji.java" tooltip="src/src/banji/Banji.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/banji/Banji.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="82" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BanjiDAO.java" partName="BanjiDAO.java" path="D:/大学/面向对象/four/src/src/banji/BanjiDAO.java" title="BanjiDAO.java" tooltip="src/src/banji/BanjiDAO.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/banji/BanjiDAO.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="180" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Banji.xml" partName="Banji.xml" path="D:/大学/面向对象/four/src/src/banji/Banji.xml" title="Banji.xml" tooltip="src/src/banji/Banji.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/src/src/banji/Banji.xml"/>
 </editor>
 </editors>
 <views>
@@ -98,7 +104,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (100 of 263 items)"/>
+<category IMemento.internal.id="Warnings (100 of 262 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -146,7 +152,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="com.genuitec.myeclipse.perspective.myeclipseperspective">
+<perspectives activePart="com.genuitec.eclipse.webdesigner3.editors.jsp" activePerspective="com.genuitec.myeclipse.perspective.myeclipseperspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.genuitec.myeclipse.perspective.MyEclipsePerspectiveFactory" id="com.genuitec.myeclipse.perspective.myeclipseperspective" label="MyEclipse Java Enterprise"/>
 <alwaysOnActionSet id="com.genuitec.myeclipse.actions.deploytools"/>
@@ -330,132 +336,147 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/testmvc/HelloController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/tool/studentTool.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/examdetail/Examdetail.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/examdetail/ExamdetailDAO.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/src/src/examdetail/Examdetail.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.springframework.springconfigeditor" path="/src/src/abc.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/src/src/mybatis.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/src/WebRoot/test.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/src/src/examdetail/Examdetail.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/tool/teacherTool.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/tool/studentTool.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/exam/ExamDAO.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/src/src/exam/Exam.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/banji/Banji.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/exam/Exam.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/src/src/banji/BanjiDAO.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/src/src/banji/Banji.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/src/WebRoot/test.jsp"/>
 </editors>
-<item historyLabel="Examdetail.java" index="2">
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4884" y="0"/>
+</item>
+<item historyLabel="abc.xml" index="1"/>
+<item historyLabel="mybatis.xml" index="2"/>
+<item historyLabel="abc.xml" index="1"/>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="5071" y="0"/>
+</item>
+<item historyLabel="test.jsp" index="3"/>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="5071" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4132" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4021" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4412" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="901" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4412" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="901" y="0"/>
+</item>
+<item historyLabel="studentTool.java" index="5">
+<position info="not_deleted" x="547" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="901" y="0"/>
+</item>
+<item historyLabel="studentTool.java" index="5">
+<position info="not_deleted" x="547" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="901" y="0"/>
+</item>
+<item historyLabel="studentTool.java" index="5">
+<position info="not_deleted" x="228" y="103"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="901" y="0"/>
+</item>
+<item historyLabel="Banji.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ExamdetailDAO.java" index="3">
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="901" y="0"/>
+</item>
+<item historyLabel="Exam.java" index="7">
+<position info="not_deleted" x="153" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="745" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4412" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="745" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="4412" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="3128" y="0"/>
+</item>
+<item historyLabel="Banji.java" index="6">
+<position info="not_deleted" x="82" y="0"/>
+</item>
+<item historyLabel="HelloController.java" index="0">
+<position info="not_deleted" x="2905" y="1"/>
+</item>
+<item historyLabel="BanjiDAO.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Examdetail.xml" index="4"/>
-<item historyLabel="Examdetail.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Banji.xml" index="9"/>
+<item historyLabel="BanjiDAO.java" index="8">
+<position info="not_deleted" x="180" y="0"/>
 </item>
-<item historyLabel="Examdetail.xml" index="4"/>
-<item historyLabel="ExamdetailDAO.java" index="3">
-<position info="not_deleted" x="195" y="0"/>
+<item historyLabel="Banji.xml" index="9"/>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="745" y="0"/>
 </item>
-<item historyLabel="Examdetail.xml" index="4"/>
-<item historyLabel="Examdetail.java" index="2">
-<position info="not_deleted" x="21" y="0"/>
+<item historyLabel="BanjiDAO.java" index="8">
+<position info="not_deleted" x="180" y="0"/>
 </item>
-<item historyLabel="studentTool.java" index="1">
-<position info="not_deleted" x="778" y="0"/>
-</item>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="1331" y="0"/>
+<item historyLabel="Banji.xml" index="9"/>
+<item historyLabel="studentTool.java" index="5">
+<position info="not_deleted" x="228" y="103"/>
 </item>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2371" y="0"/>
+<position info="not_deleted" x="3128" y="0"/>
+</item>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="745" y="0"/>
 </item>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2495" y="0"/>
+<position info="not_deleted" x="3128" y="0"/>
 </item>
 <item historyLabel="HelloController.java" index="0">
-<position/>
+<position info="not_deleted" x="2985" y="0"/>
 </item>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2495" y="0"/>
+<position info="not_deleted" x="3048" y="0"/>
 </item>
-<item historyLabel="Examdetail.xml" index="4"/>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2495" y="0"/>
-</item>
-<item historyLabel="Examdetail.java" index="2">
-<position info="not_deleted" x="21" y="0"/>
-</item>
-<item historyLabel="Examdetail.xml" index="4"/>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2495" y="0"/>
-</item>
-<item historyLabel="studentTool.java" index="1">
-<position info="not_deleted" x="896" y="0"/>
+<item historyLabel="teacherTool.java" index="4">
+<position info="not_deleted" x="745" y="0"/>
 </item>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2495" y="0"/>
-</item>
-<item historyLabel="studentTool.java" index="1">
-<position info="not_deleted" x="896" y="0"/>
+<position info="not_deleted" x="3048" y="0"/>
 </item>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2495" y="0"/>
+<position info="not_deleted" x="3182" y="0"/>
 </item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="Examdetail.xml" index="6"/>
-<item historyLabel="test.jsp" index="5"/>
+<item historyLabel="test.jsp" index="10"/>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2247" y="0"/>
+<position info="not_deleted" x="3182" y="0"/>
 </item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="studentTool.java" index="7">
-<position info="not_deleted" x="896" y="0"/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="studentTool.java" index="7">
-<position info="not_deleted" x="896" y="0"/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="studentTool.java" index="7">
-<position info="not_deleted" x="368" y="0"/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
+<item historyLabel="test.jsp" index="10"/>
 <item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2247" y="0"/>
+<position info="not_deleted" x="3182" y="0"/>
 </item>
-<item historyLabel="studentTool.java" index="7">
-<position info="not_deleted" x="368" y="0"/>
-</item>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="1750" y="0"/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2616" y="0"/>
-</item>
-<item historyLabel="ExamDAO.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Exam.xml" index="9"/>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2616" y="0"/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="ExamDAO.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2616" y="0"/>
-</item>
-<item historyLabel="HelloController.java" index="0">
-<position/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
-<item historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2534" y="0"/>
-</item>
-<item historyLabel="test.jsp" index="5"/>
-<item active="true" historyLabel="HelloController.java" index="0">
-<position info="not_deleted" x="2534" y="0"/>
-</item>
+<item active="true" historyLabel="test.jsp" index="10"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -473,50 +494,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Exam.xml" tooltip="src/src/exam/Exam.xml">
-<persistable path="/src/src/exam/Exam.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExamDAO.java" tooltip="src/src/exam/ExamDAO.java">
-<persistable path="/src/src/exam/ExamDAO.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="test.jsp" tooltip="src/WebRoot/test.jsp">
-<persistable path="/src/WebRoot/test.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Examdetail.xml" tooltip="src/src/examdetail/Examdetail.xml">
-<persistable path="/src/src/examdetail/Examdetail.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ExamdetailDAO.java" tooltip="src/src/examdetail/ExamdetailDAO.java">
-<persistable path="/src/src/examdetail/ExamdetailDAO.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Examdetail.java" tooltip="src/src/examdetail/Examdetail.java">
-<persistable path="/src/src/examdetail/Examdetail.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BanjiDAO.java" tooltip="exa4/src/banji/BanjiDAO.java">
-<persistable path="/exa4/src/banji/BanjiDAO.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Exam.java" tooltip="src/src/exam/Exam.java">
-<persistable path="/src/src/exam/Exam.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelloController.java" tooltip="exa4/src/testmvc/HelloController.java">
-<persistable path="/exa4/src/testmvc/HelloController.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Banji.xml" tooltip="src/src/banji/Banji.xml">
 <persistable path="/src/src/banji/Banji.xml"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BanjiDAO.java" tooltip="src/src/banji/BanjiDAO.java">
 <persistable path="/src/src/banji/BanjiDAO.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Student.java" tooltip="src/src/student/Student.java">
-<persistable path="/src/src/student/Student.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Banji.java" tooltip="src/src/banji/Banji.java">
 <persistable path="/src/src/banji/Banji.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Account.java" tooltip="src/src/account/Account.java">
-<persistable path="/src/src/account/Account.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Exam.java" tooltip="src/src/exam/Exam.java">
+<persistable path="/src/src/exam/Exam.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="studentTool.java" tooltip="src/src/tool/studentTool.java">
-<persistable path="/src/src/tool/studentTool.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="teacherTool.java" tooltip="src/src/tool/teacherTool.java">
+<persistable path="/src/src/tool/teacherTool.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="test.jsp" tooltip="src/WebRoot/test.jsp">
+<persistable path="/src/WebRoot/test.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="mybatis.xml" tooltip="src/src/mybatis.xml">
+<persistable path="/src/src/mybatis.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.springframework.springconfigeditor" name="abc.xml" tooltip="src/src/abc.xml">
+<persistable path="/src/src/abc.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StudentDAO.java" tooltip="src/src/student/StudentDAO.java">
+<persistable path="/src/src/student/StudentDAO.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Sb.xml" tooltip="src/src/sb/Sb.xml">
+<persistable path="/src/src/sb/Sb.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SbDAO.java" tooltip="src/src/sb/SbDAO.java">
+<persistable path="/src/src/sb/SbDAO.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Sb.java" tooltip="src/src/sb/Sb.java">
+<persistable path="/src/src/sb/Sb.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Fenguan.xml" tooltip="exa4/src/fenguan/Fenguan.xml">
+<persistable path="/exa4/src/fenguan/Fenguan.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="gradeset.java" tooltip="exa4/src/gradeset/gradeset.java">
+<persistable path="/exa4/src/gradeset/gradeset.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="Examnature.xml" tooltip="exa4/src/examnature/Examnature.xml">
+<persistable path="/exa4/src/examnature/Examnature.xml"/>
 </file>
 </mruList>
 </workbench>

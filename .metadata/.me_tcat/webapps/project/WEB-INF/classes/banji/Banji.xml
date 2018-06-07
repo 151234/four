@@ -7,4 +7,7 @@
      <select id="findByBid" parameterType="java.lang.String" resultType="Banji">
      select * from banji where bid = #{0}  
      </select>
+     <select id="findByTid" parameterType="java.lang.String" resultType="Banji">
+     select * from banji where tid = #{0}  
+     </select>
  </mapper>

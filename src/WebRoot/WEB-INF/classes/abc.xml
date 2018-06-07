@@ -72,6 +72,10 @@
 		<property name="mapperInterface" value="teacher.TeacherDAO"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
+	<bean id="SbDAO" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="sb.SbDAO"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource"></bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

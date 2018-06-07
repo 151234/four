@@ -12,7 +12,7 @@
 	</section>
 	<section name="NewXmlCreationWizardPage">
 		<item value="Default XML template" key="templatezh_CN"/>
-		<item value="/src/src/teacher" key="filePath"/>
+		<item value="/src/src/sb" key="filePath"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

@@ -1,0 +1,8 @@
+package student;
+
+
+public interface StudentDAO {
+	public Student findBySid(java.lang.String sid);
+	public int add(student.Student student);
+	public boolean joinclass(java.lang.String bid,java.lang.String sid);
+}
