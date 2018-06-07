@@ -6,7 +6,6 @@ import java.util.List;
 import exam.Exam;
 import banji.Banji;
 import student.*;
-import teacher.Teacher;
 import examdetail.*;
 
 public class studentTool {
@@ -17,7 +16,6 @@ public class studentTool {
 	private List<Exam> exam = new ArrayList<Exam>();//选中班级的考试
 	private Banji currentbj;//当前选中的班级
 	private Examdetail ed;//选中的考卷的内容
-	private Teacher t ;
 	public Student getS() {
 		return s;
 	}
@@ -59,12 +57,6 @@ public class studentTool {
 	}
 	public void setEd(Examdetail ed) {
 		this.ed = ed;
-	}
-	public Teacher getT() {
-		return t;
-	}
-	public void setT(Teacher t) {
-		this.t = t;
 	}
 	
 }

@@ -108,7 +108,6 @@ public class HelloController {
 			st.setExam(null);
 			st.setCurrentbj(null);
 			st.setEd(null);
-			st.setT(null);
 			request.getSession().setAttribute("student", st);
 			return "Slogin";
 		}
@@ -224,8 +223,6 @@ public class HelloController {
 		st.setCurrentbj(bj);
 		List<Exam> e = edao.findByBid(bid);
 		st.setExam(e);
-		Teacher t = tdao.findByTid(bj.getTid());
-		st.setT(t);
 		request.getSession().setAttribute("student", st);
 		return "Slogin";
 	}
@@ -235,8 +232,6 @@ public class HelloController {
 		st.setCurrentbj(bj);
 		List<Exam> e = edao.findByBid(bid);
 		st.setExam(e);
-		Teacher t = tdao.findByTid(bj.getTid());
-		st.setT(t);
 		return st;
 	}
 	@RequestMapping("/test.action")//学生进入班级

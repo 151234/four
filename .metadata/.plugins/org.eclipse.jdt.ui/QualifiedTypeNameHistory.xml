@@ -17,6 +17,6 @@
 <fullyQualifiedTypeName name="examdetail.ExamdetailDAO"/>
 <fullyQualifiedTypeName name="sb.SbDAO"/>
 <fullyQualifiedTypeName name="sb.Sb"/>
-<fullyQualifiedTypeName name="teacher.Teacher"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="teacher.Teacher"/>
 </qualifiedTypeNameHistroy>
