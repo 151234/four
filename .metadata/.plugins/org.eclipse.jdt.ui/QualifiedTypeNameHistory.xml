@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="banji.BanjiDAO"/>
 <fullyQualifiedTypeName name="exam.ExamDAO"/>
 <fullyQualifiedTypeName name="exam.Exam"/>
-<fullyQualifiedTypeName name="examdetail.Examdetail"/>
 <fullyQualifiedTypeName name="examdetail.ExamdetailDAO"/>
 <fullyQualifiedTypeName name="sb.SbDAO"/>
 <fullyQualifiedTypeName name="sb.Sb"/>
@@ -21,4 +20,5 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
 <fullyQualifiedTypeName name="banji.Banji"/>
 <fullyQualifiedTypeName name="teacher.Teacher"/>
+<fullyQualifiedTypeName name="examdetail.Examdetail"/>
 </qualifiedTypeNameHistroy>
