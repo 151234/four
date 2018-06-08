@@ -14,7 +14,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import exam.Exam;
 import exam.ExamDAO;
@@ -90,25 +92,29 @@ public class HelloController {
 			studentTool st = new studentTool();
 			Student s = sdao.findBySid(username);
 			List<Sb> sb = sbdao.findBySid(s.getSid());
-			List<Banji> bj = new ArrayList<Banji>();
+			List<TofBj> tbj = new ArrayList<TofBj>();
 			st.setS(s);
 			st.setSidenty(a.getIdentify());
 			if(sb==null){
 				st.setHaveBanji(false);
-				st.setBj(null);
+				st.setTbj(null);
 			}
 			else{
 				for(int i=0;i<sb.size();i++){
 					Banji b = bjdao.findByBid(sb.get(i).getBid());
-					bj.add(b);
+					Teacher t = tdao.findByTid(b.getTid());
+					TofBj x = new TofBj();
+					x.setBj(b);
+					x.setT(t);
+					tbj.add(x);
 				}
 				st.setHaveBanji(true);
-				st.setBj(bj);
+				st.setTbj(tbj);
 			}	
 			st.setExam(null);
 			st.setCurrentbj(null);
 			st.setEd(null);
-			st.setT(null);
+			st.setCurrentt(null);
 			request.getSession().setAttribute("student", st);
 			return "Slogin";
 		}
@@ -202,9 +208,19 @@ public class HelloController {
 				sb.setSid(s.getSid());
 				sbdao.joinclass(sb);				//加入班级，对sb表插入数据
 				Banji bj2 = bjdao.findByBid(bid);	//更新studentTool的班级列表内容
-				List<Banji> b2 = st.getBj();
-				b2.add(bj2);
-				st.setBj(b2);
+				Teacher t2 = tdao.findByTid(bj2.getTid());
+				TofBj tbj = new TofBj();
+				tbj.setBj(bj2);
+				tbj.setT(t2);				
+				List<TofBj> b2 ;
+				if(st.getTbj()==null){	//更新
+					b2 = new ArrayList<TofBj>();
+				}
+				else{
+					b2 = st.getTbj();
+				}				
+				b2.add(tbj);
+				st.setTbj(b2);
 				st.setHaveBanji(true);
 				request.getSession().setAttribute("student", st);
 			}
@@ -225,7 +241,7 @@ public class HelloController {
 		List<Exam> e = edao.findByBid(bid);
 		st.setExam(e);
 		Teacher t = tdao.findByTid(bj.getTid());
-		st.setT(t);
+		st.setCurrentt(t);
 		request.getSession().setAttribute("student", st);
 		return "Slogin";
 	}
@@ -236,8 +252,18 @@ public class HelloController {
 		List<Exam> e = edao.findByBid(bid);
 		st.setExam(e);
 		Teacher t = tdao.findByTid(bj.getTid());
-		st.setT(t);
+		st.setCurrentt(t);
 		return st;
+	}
+	@RequestMapping("/selectexam.action")//选择考卷
+	public String selectexam(HttpServletRequest request,ModelMap map)
+	{
+		String eid = request.getParameter("eid");
+		List<Examdetail> et = etdao.findByEid(eid);
+		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		st.setEd(et);
+		request.getSession().setAttribute("student", st);
+		return "Slogin";
 	}
 	@RequestMapping("/test.action")//学生进入班级
 	public String test(HttpServletRequest request,ModelMap map)

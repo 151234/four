@@ -12,12 +12,13 @@ import examdetail.*;
 public class studentTool {
 	private Student s;
 	private int sidenty;
-	private List<Banji> bj;//所有加入的班级
+//	private List<Banji> bj;//所有加入的班级
 	private boolean haveBanji;//是否加入班级
 	private List<Exam> exam = new ArrayList<Exam>();//选中班级的考试
 	private Banji currentbj;//当前选中的班级
-	private Examdetail ed;//选中的考卷的内容
-	private Teacher t ;
+	private List<Examdetail> ed;//选中的考卷的内容
+	private Teacher currentt ;
+	private List<TofBj> tbj;//加入的所有班级及班级对应的老师
 	public Student getS() {
 		return s;
 	}
@@ -30,12 +31,12 @@ public class studentTool {
 	public void setSidenty(int sidenty) {
 		this.sidenty = sidenty;
 	}
-	public List<Banji> getBj() {
-		return bj;
-	}
-	public void setBj(List<Banji> bj) {
-		this.bj = bj;
-	}
+//	public List<Banji> getBj() {
+//		return bj;
+//	}
+//	public void setBj(List<Banji> bj) {
+//		this.bj = bj;
+//	}
 	public boolean isHaveBanji() {
 		return haveBanji;
 	}
@@ -54,17 +55,24 @@ public class studentTool {
 	public void setCurrentbj(Banji currentbj) {
 		this.currentbj = currentbj;
 	}
-	public Examdetail getEd() {
+	public List<Examdetail> getEd() {
 		return ed;
 	}
-	public void setEd(Examdetail ed) {
+	public void setEd(List<Examdetail> ed) {
 		this.ed = ed;
 	}
-	public Teacher getT() {
-		return t;
+	public Teacher getCurrentt() {
+		return currentt;
 	}
-	public void setT(Teacher t) {
-		this.t = t;
+	public void setCurrentt(Teacher currentt) {
+		this.currentt = currentt;
 	}
+	public List<TofBj> getTbj() {
+		return tbj;
+	}
+	public void setTbj(List<TofBj> tbj) {
+		this.tbj = tbj;
+	}
+	
 	
 }
