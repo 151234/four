@@ -21,4 +21,8 @@
 <fullyQualifiedTypeName name="banji.Banji"/>
 <fullyQualifiedTypeName name="teacher.Teacher"/>
 <fullyQualifiedTypeName name="examdetail.Examdetail"/>
+<fullyQualifiedTypeName name="grade.GradeDAO"/>
+<fullyQualifiedTypeName name="gradedetail.GradedetailDAO"/>
+<fullyQualifiedTypeName name="gradedetail.Gradedetail"/>
+<fullyQualifiedTypeName name="grade.Grade"/>
 </qualifiedTypeNameHistroy>

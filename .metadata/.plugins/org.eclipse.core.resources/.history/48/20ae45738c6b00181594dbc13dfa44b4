@@ -1,0 +1,6 @@
+package grade;
+
+
+public interface GradeDAO {
+	public Grade findByid(java.lang.String sid,java.lang.String etid);
+}

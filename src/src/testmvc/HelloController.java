@@ -22,6 +22,10 @@ import exam.Exam;
 import exam.ExamDAO;
 import examdetail.Examdetail;
 import examdetail.ExamdetailDAO;
+import grade.Grade;
+import grade.GradeDAO;
+import gradedetail.Gradedetail;
+import gradedetail.GradedetailDAO;
 
 import banji.Banji;
 import banji.BanjiDAO;
@@ -63,6 +67,10 @@ public class HelloController {
 	ExamdetailDAO etdao;
 	@Resource
 	SbDAO sbdao;
+	@Resource
+	GradeDAO gdao;
+	@Resource
+	GradedetailDAO gddao;
 	
 	@RequestMapping("/login.action")
 	public String login(HttpServletRequest request,ModelMap map)
@@ -115,6 +123,7 @@ public class HelloController {
 			st.setCurrentbj(null);
 			st.setEd(null);
 			st.setCurrentt(null);
+			st.setCurrene(null);
 			request.getSession().setAttribute("student", st);
 			return "Slogin";
 		}
@@ -258,10 +267,46 @@ public class HelloController {
 	public String selectexam(HttpServletRequest request,ModelMap map)
 	{
 		String eid = request.getParameter("eid");
+		Exam e = edao.findByEid(eid);
 		List<Examdetail> et = etdao.findByEid(eid);
 		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		st.setCurrene(e);
 		st.setEd(et);
 		request.getSession().setAttribute("student", st);
+		return "Slogin";
+	}
+	@RequestMapping("/doexam.action")//Ìá½»¿¼¾í
+	public String doexam(HttpServletRequest request,ModelMap map)
+	{
+		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		int c = st.getEd().size();
+		int right = 0;
+		for(int i =0;i<c;i++){
+			Examdetail ed = st.getEd().get(i);
+			Gradedetail gd = new Gradedetail();
+			gd.setSid(st.getS().getSid());
+			gd.setEtid(ed.getEtid());
+			String a = "que" + i;
+			String answer = request.getParameter(a);
+			if(answer.equals(ed.getAnswer())){
+				gd.setRight(true);
+				right ++;
+			}
+			else{
+				gd.setRight(false);
+			}
+			gd.setSanswer(answer);
+			gddao.add(gd);
+		}		
+		float rightpercent = (float)right/(float)c;
+		rightpercent = Float.parseFloat(String.format("%.1f",rightpercent));
+		int grade = (int)rightpercent;
+		Grade g = new Grade();
+		g.setEid(st.getCurrene().getEid());
+		g.setGrade(grade);
+		g.setRightpercent(rightpercent);
+		g.setSid(st.getS().getSid());
+		gdao.add(g);
 		return "Slogin";
 	}
 	
@@ -313,10 +358,17 @@ public class HelloController {
 		request.getSession().setAttribute("teacher", tt);
 		return "Slogin";
 	}
+	
+	
 	@RequestMapping("/test.action")
 	public String test(HttpServletRequest request,ModelMap map)
 	{
-		
+		int c = 11;
+		int a = 3;
+		float x = (float)a/(float)c*100;
+		x = Float.parseFloat(String.format("%.1f",x));
+		int b = (int)x;
+		System.out.println(b);
 		return "Slogin";
 	}
 }

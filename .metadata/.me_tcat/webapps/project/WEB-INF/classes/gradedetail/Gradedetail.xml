@@ -7,5 +7,8 @@
      <select id="findByid" parameterType="java.lang.String" resultType="Gradedetail">
      select * from gradedetail where sid = #{0}  and etid = #{1}
      </select>
-     
+      <insert id="add" parameterType="Gradedetail">    
+        insert into gradedetail(sid,etid,isRight,sanswer)   
+        values(#{sid},#{etid},#{isRight},#{sanswer})    
+    </insert>
  </mapper>

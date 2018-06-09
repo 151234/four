@@ -19,6 +19,7 @@ public class studentTool {
 	private List<Examdetail> ed;//选中的考卷的内容
 	private Teacher currentt ;
 	private List<TofBj> tbj;//加入的所有班级及班级对应的老师
+	private Exam currene;
 	public Student getS() {
 		return s;
 	}
@@ -72,6 +73,12 @@ public class studentTool {
 	}
 	public void setTbj(List<TofBj> tbj) {
 		this.tbj = tbj;
+	}
+	public Exam getCurrene() {
+		return currene;
+	}
+	public void setCurrene(Exam currene) {
+		this.currene = currene;
 	}
 	
 	
