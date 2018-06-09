@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("   <body style=\"background:url(images/2.jpg)\" background-repeat:no-repeat ;\r\n");
       out.write("background-size:100% 100%; \r\n");
       out.write("background-attachment: fixed;\">\r\n");
-      out.write("<div id=\"div_login\" style=\"position:absolute; width:500px; height:305px;z-index:1;left:780px;top:250px;\r\n");
+      out.write("<div id=\"div_login\" style=\"position:absolute; width:500px; height:405px;z-index:1;left:780px;top:250px;\r\n");
       out.write("     \">\r\n");
       out.write("  <table  border=\"0\" cellpadding=\"2\" cellspacing=\"0\">\r\n");
       out.write("  <caption align=\"center\"><h2>四则运算系统登陆</h2></caption>\r\n");
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("          <td><img alt=\"\" src=\"yanzheng.jsp\"></td></tr> \r\n");
       out.write("      <tr><th><input type=\"submit\" value=\"登陆\"></th>\r\n");
       out.write("    <th><input type=\"reset\" value=\"重置\"></th></tr> \r\n");
-      out.write("    <tr><th ><a style=\"display:block;text-align:center\" href=\"regist.jsp\">还没有帐号？点击这里</a> </tr></tr>\r\n");
+      out.write("    <div id=\"div_login_link\" style=\"position:absolute;widteh:400px;height:50px;left:65px;top:195px\"><a style=\"display:block;text-align:center\" href=\"regist.jsp\">还没有帐号？点击这里</a></div>\r\n");
       out.write("                                      \r\n");
       out.write("    </form>\r\n");
       out.write("  </table>\r\n");

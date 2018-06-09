@@ -13,6 +13,9 @@
      <select id="findByinvite" parameterType="java.lang.String" resultType="Banji">
      select * from banji where invite = #{0}  
      </select>
+      <select id="findall"  resultType="Banji">
+     select * from banji 
+     </select>
      <insert id="add" parameterType="Banji">    
         insert into banji(bid,tid,bname,invite)   
         values(#{bid},#{tid},#{bname},#{invite})    

@@ -99,9 +99,9 @@
          <div id="div_slogin_left_menu0" style="position:absolute;width:180px;height:50px;left:0px;top:0px;
          border-bottom:1px solid; text-align:center;font-size:30px"><b>菜单</b></div>
           <div id="div_slogin_left_menu1" style="position:absolute;width:100px;height:30px;left:40px;top:65px;
-          text-align:center;font-size:16px;"><a href="" onclick="myclassclick();return false;">我的班级</a></div>        
+          text-align:center;font-size:16px;"><a href="" onclick="myclassclick();">我的班级</a></div>        
            <div id="div_slogin_left_menu2" style="position:absolute;width:100px;height:30px;left:40px;top:120px;
-          text-align:center;font-size:16px"><a href="" onclick="mypratiseclick();return false;">练习</a></div>
+          text-align:center;font-size:16px"><a href="" onclick="mypratiseclick();">练习</a></div>
            <div id="div_slogin_left_menu3" style="position:absolute;width:180px;height:60px;left:0px;top:180px;
           text-align:center;font-size:16px"><a href="">错题本</a></div>
            <div id="div_slogin_left_menu4" style="position:absolute;width:180px;height:60px;left:0px;top:240px;
@@ -208,7 +208,7 @@
              <div id="div_content_sclass_chomework_t1" style="position:absolute;width:50px;height:30px;left:80px;top:10px;
                  font-size:10px"><b>作业名称</b></div>
                    <div id="div_content_sclass_chomework_t2" style="position:absolute;width:40px;height:20px;left:180px;top:80px;
-            font-size:10px"><a href="javascript:void(0)" onclick="clas_showhw();return false;">进入</a></div>    
+            font-size:10px"><a href="javascript:void(0)" onclick="clas_showhw();">进入</a></div>    
              </div>   
                  
             <div id="div_content_sclass_hwdetail" style="position:absolute;width:1740px;height:635px;left:0px;top:10px;display:none;">

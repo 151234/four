@@ -5,6 +5,7 @@ public class Exam {
 	private String tid;
 	private String bid;
 	private String etime;
+	private boolean iscommit;
 	public String getEid() {
 		return eid;
 	}
@@ -29,5 +30,12 @@ public class Exam {
 	public void setEtime(String etime) {
 		this.etime = etime;
 	}
+	public boolean isIscommit() {
+		return iscommit;
+	}
+	public void setIscommit(boolean iscommit) {
+		this.iscommit = iscommit;
+	}
+	
 	
 }

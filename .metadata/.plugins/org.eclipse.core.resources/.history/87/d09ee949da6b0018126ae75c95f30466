@@ -1,0 +1,40 @@
+package tool;
+
+public class gradeTool {
+	private int number;
+	private String context;
+	private String sanswer;
+	private String answer;
+	private boolean isright;
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public String getContext() {
+		return context;
+	}
+	public void setContext(String context) {
+		this.context = context;
+	}
+	public String getSanswer() {
+		return sanswer;
+	}
+	public void setSanswer(String sanswer) {
+		this.sanswer = sanswer;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+	public boolean isIsright() {
+		return isright;
+	}
+	public void setIsright(boolean isright) {
+		this.isright = isright;
+	}
+	
+}

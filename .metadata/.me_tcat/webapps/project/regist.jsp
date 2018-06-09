@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head> 
   <body style="background:url(images/3.jpg)" background-repeat:no-repeat ;background-size:100% ; background-attachment: fixed;">
-     <div id="div_regist" style="position:absolute; width:500px; height:305px;z-index:1;left:780px;top:250px;">
+     <div id="div_regist" style="position:absolute; width:500px; height:305px;z-index:1;left:780px;top:350px;">
    <form action="regist.action" method="post">
     <table  border="0" cellpadding="2" cellspacing="0">
      <caption align="center"><h2>注册帐号</h2></caption>

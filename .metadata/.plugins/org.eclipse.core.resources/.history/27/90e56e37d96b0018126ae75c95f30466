@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+
+ <mapper namespace="banji.BanjiDAO">
+     <!-- 查找 -->
+     <select id="findByBid" parameterType="java.lang.String" resultType="Banji">
+     select * from banji where bid = #{0}  
+     </select>
+     <select id="findByTid" parameterType="java.lang.String" resultType="Banji">
+     select * from banji where tid = #{0}  
+     </select>
+     <select id="findByinvite" parameterType="java.lang.String" resultType="Banji">
+     select * from banji where invite = #{0}  
+     </select>
+     <insert id="add" parameterType="Banji">    
+        insert into banji(bid,tid,bname,invite)   
+        values(#{bid},#{tid},#{bname},#{invite})    
+    </insert>
+ </mapper>
