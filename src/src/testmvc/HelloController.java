@@ -272,7 +272,8 @@ public class HelloController {
 		studentTool st = (studentTool)request.getSession().getAttribute("student");
 		Exam e = edao.findByEid(eid);
 		st.setCurrene(e);
-		if(e.isIscommit()==true){
+		Grade iscommit = gdao.findByid(eid, st.getS().getSid());
+		if(iscommit!=null){
 			Grade g = gdao.findByid(eid, st.getS().getSid());
 			List<Examdetail> ed = etdao.findByEid(eid);
 			List<gradeTool> gts = new ArrayList<gradeTool>();
@@ -289,6 +290,7 @@ public class HelloController {
 			request.getSession().setAttribute("grade", g.getGrade());//成绩
 		}
 		else{
+			request.getSession().setAttribute("grade", null);//没做过就传控制
 			List<Examdetail> et = etdao.findByEid(eid);			
 			st.setEd(et);		
 		}
@@ -326,7 +328,7 @@ public class HelloController {
 			gt1.setIsright(gd.isRight());
 			gt.add(gt1);
 		}		
-		float rightpercent = (float)right/(float)c;
+		float rightpercent = (float)right/(float)c*100;
 		rightpercent = Float.parseFloat(String.format("%.1f",rightpercent));
 		int grade = (int)rightpercent;
 		Grade g = new Grade();
@@ -335,9 +337,6 @@ public class HelloController {
 		g.setRightpercent(rightpercent);
 		g.setSid(st.getS().getSid());
 		gdao.add(g);
-		Exam e = st.getCurrene();
-		e.setIscommit(true);
-		edao.update(e);
 		request.getSession().setAttribute("grademessage", gt);//做题情况
 		request.getSession().setAttribute("grade", grade);//成绩
 		return "Slogin";
@@ -449,8 +448,6 @@ public class HelloController {
     	String date = sdf.format(dt);
      	System.out.println(date);
      	Exam e = edao.findByEid("E001");
-     	e.setIscommit(false);
-     	edao.update(e);
 		return "index";
 	}
 }

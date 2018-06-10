@@ -13,9 +13,6 @@
      <select id="findByTid" parameterType="java.lang.String" resultType="Exam">
      select * from exam where tid = #{0}  
      </select>
-     <update id="update" parameterType="Exam" >    
-        update exam set iscommit = #{iscommit} where eid = #{eid}
-    </update>
     <delete id="delete" parameterType="java.lang.String">    
         delete from exam where eid= #{0}
     </delete>
