@@ -62,9 +62,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div id="div_slogin_left_menu0" style="position:absolute;width:180px;height:50px;left:0px;top:0px;
          border-bottom:1px solid; text-align:center;font-size:30px"><b>菜单</b></div>
           <div id="div_slogin_left_menu1" style="position:absolute;width:100px;height:30px;left:40px;top:65px;
-          text-align:center;font-size:16px;"><a href="" onclick="myclassclick();">我的班级</a></div>        
+          text-align:center;font-size:16px;"><a href="Tlogin.jsp" >我的班级</a></div>        
            <div id="div_slogin_left_menu2" style="position:absolute;width:100px;height:30px;left:40px;top:120px;
-          text-align:center;font-size:16px"><a href="" onclick="mypratiseclick();">题库</a></div>
+          text-align:center;font-size:16px"><a href="" >题库</a></div>
            <div id="div_slogin_left_menu3" style="position:absolute;width:180px;height:60px;left:0px;top:180px;
           text-align:center;font-size:16px"><a href="">我的学豆</a></div>
     </div>
@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          solid #aaaaaa">
        
           <div id="div_join" style="position:absolute;width:600px;height:50px;left:1200px;top:15px">
-                   <form action="joinclass.action" method="post">
+                   <form action="createclass.action" method="post">
                   输入班级名称 <input type="text" name="bname">
                    <input type="submit" value="创建新班级">
                    </form>
@@ -98,6 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              font-size:14px;display:none;">><a href="Sbandetail.jsp">班级作业</a></div>
              <div id="div_content_sclass_link2" style="position:absolute;width:100px;height:50px;left:170px;top:15px;
              font-size:14px;display:none;">><a href="">作业详情</a></div>
+             <div id="div_refresh" style="position:absolute;width:100px;height:50px;left:800px;top:15px"><a href="Tlogin.jsp">刷新</a></div>
          </div>
        
            <div id="div_noclass" style="position:absolute;width:1740px;height:635px;left:0px;top:50px;display:none">
@@ -130,15 +131,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              height+=120;
           }
            %>
+<script type="text/javascript">
+function confirmDel()
+ {  
+ 
+  if(confirm("确定删除班级吗？"))
+  {
+    document.forms.deletebanji.submit();
+  }
+ }
+</script>
             <div id="div_content_tclass_cstate_p<%=i %>" style="position:absolute;width:230px;height:120px;left:<%=i*255+20 %>px;top:
             <%=height %>px;background:url(images/class/<%=i %>.jpg);border:1px solid #666666;">
                 <div id="div_content_tclass_cstate_p<%=i %>_t1" style="position:absolute;width:120px;height:30px;left:10px;top:10px;
                  font-size:10px"><b><%=tt.getBj().get(i).getBname() %></b>
                 </div>
                 <div id="div_content_tclass_cstate_p<%=i %>_t2" style="position:absolute;width:100px;height:30px;left:10px;top:80px;
-                 font-size:10px"><b>邀请码:<%=tt.getBj().get(i).getTid() %></b></div>
+                 font-size:10px"><b>邀请码:<%=tt.getBj().get(i).getInvite() %></b></div>
                 <div id="div_content_tclass_cstate_in" style="position:absolute;width:40px;height:20px;left:180px;top:80px;
-                 font-size:10px"><a href="selectclass.action?bid=<%=tt.getBj().get(i).getBid() %>">进入</a></div>
+                 font-size:10px"><a href="intoclass.action?bid=<%=tt.getBj().get(i).getBid() %>">进入</a></div>
+                 <div id="div_content_tclass_cstate_delete" style="position:absolute;width:30px;height:20px;left:180px;top:10px;">
+                 <form action="deleteclass.action" method="post" name="deletebanji">
+                 <input name="deletebid" type="hidden" value="<%=tt.getBj().get(i).getBid() %>" >
+                 <input  type="button" value="删除" style="background-color:#353c44; color:#e1e2e3" onClick="confirmDel()">
+                 </form>
+                 </div>
             </div>
           <%} %>
           </div>
