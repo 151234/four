@@ -1,7 +1,9 @@
 package testmvc;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -267,11 +269,31 @@ public class HelloController {
 	public String selectexam(HttpServletRequest request,ModelMap map)
 	{
 		String eid = request.getParameter("eid");
-		Exam e = edao.findByEid(eid);
-		List<Examdetail> et = etdao.findByEid(eid);
 		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		Exam e = edao.findByEid(eid);
 		st.setCurrene(e);
-		st.setEd(et);
+		Grade iscommit = gdao.findByid(eid, st.getS().getSid());
+		if(iscommit!=null){
+			Grade g = gdao.findByid(eid, st.getS().getSid());
+			List<Examdetail> ed = etdao.findByEid(eid);
+			List<gradeTool> gts = new ArrayList<gradeTool>();
+			for(int i =0;i<ed.size();i++){
+				gradeTool gt = new gradeTool();
+				Gradedetail gd = gddao.findByid(st.getS().getSid(), ed.get(i).getEtid());
+				gt.setNumber(i+1);
+				gt.setSanswer(gd.getSanswer());
+				gt.setIsright(gd.isRight());
+				gt.setAnswer(ed.get(i).getAnswer());
+				gts.add(gt);
+			}
+			request.getSession().setAttribute("grademessage", gts);//做题情况
+			request.getSession().setAttribute("grade", g.getGrade());//成绩
+		}
+		else{
+			request.getSession().setAttribute("grade", null);//没做过就传控制
+			List<Examdetail> et = etdao.findByEid(eid);			
+			st.setEd(et);		
+		}
 		request.getSession().setAttribute("student", st);
 		return "Slogin";
 	}
@@ -288,6 +310,7 @@ public class HelloController {
 			Gradedetail gd = new Gradedetail();
 			gd.setSid(st.getS().getSid());
 			gd.setEtid(ed.getEtid());
+			gd.setEid(ed.getEid());
 			String a = "que" + i;
 			String answer = request.getParameter(a);
 			if(answer.equals(ed.getAnswer())){
@@ -299,8 +322,13 @@ public class HelloController {
 			}
 			gd.setSanswer(answer);
 			gddao.add(gd);
+			gt1.setNumber(i+1);
+			gt1.setSanswer(answer);
+			gt1.setAnswer(ed.getAnswer());
+			gt1.setIsright(gd.isRight());
+			gt.add(gt1);
 		}		
-		float rightpercent = (float)right/(float)c;
+		float rightpercent = (float)right/(float)c*100;
 		rightpercent = Float.parseFloat(String.format("%.1f",rightpercent));
 		int grade = (int)rightpercent;
 		Grade g = new Grade();
@@ -309,7 +337,8 @@ public class HelloController {
 		g.setRightpercent(rightpercent);
 		g.setSid(st.getS().getSid());
 		gdao.add(g);
-		
+		request.getSession().setAttribute("grademessage", gt);//做题情况
+		request.getSession().setAttribute("grade", grade);//成绩
 		return "Slogin";
 	}
 	
@@ -368,17 +397,57 @@ public class HelloController {
 		request.getSession().setAttribute("teacher", tt);
 		return "Slogin";
 	}
-	
+	@RequestMapping("/deleteclass.action")//删除班级
+	public String deleteExam(HttpServletRequest request,ModelMap map)
+	{
+		String bid = request.getParameter("bid");
+		List<Exam> e = edao.findByBid(bid);
+		for(int i=0;i<e.size();i++){
+			gddao.delete(e.get(i).getEid());
+			gdao.delete(e.get(i).getEid());
+			etdao.delete(e.get(i).getEid());
+			edao.delete(e.get(i).getEid());
+		}
+		bjdao.delete(bid);
+		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+		List<Examdetail> allet = etdao.findAll();
+		tt.setAllet(allet);//更新题库
+		List<Banji> allbj = bjdao.findall();
+		if(allbj==null){
+			tt.setHaveBanji(false);
+		}
+		tt.setBj(allbj);//更新班级
+		List<Exam> alle = edao.findByTid(tt.getT().getTid());
+		tt.setExam(alle);
+		request.getSession().setAttribute("teacher", tt);
+		return "Slogin";
+	}
+	@RequestMapping("/deleteexam.action")//删除考卷
+	public String deleteexam(HttpServletRequest request,ModelMap map)
+	{
+		String eid = request.getParameter("eid");
+		Exam e = edao.findByEid(eid);
+		etdao.delete(eid);
+		edao.delete(eid);
+		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+		List<Exam> bjexam = edao.findByBid(tt.getCurrenbj().getBid());
+		tt.setBjexam(bjexam);
+		List<Examdetail> allet = etdao.findAll();
+		tt.setAllet(allet);//更新题库
+		List<Exam> alle = edao.findByTid(tt.getT().getTid());
+		tt.setExam(alle);
+		request.getSession().setAttribute("teacher", tt);
+		return "Slogin";
+	}
 	
 	@RequestMapping("/test.action")
 	public String test(HttpServletRequest request,ModelMap map)
 	{
-		int c = 11;
-		int a = 3;
-		float x = (float)a/(float)c*100;
-		x = Float.parseFloat(String.format("%.1f",x));
-		int b = (int)x;
-		System.out.println(b);
-		return "Slogin";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    	Date dt=new Date();
+    	String date = sdf.format(dt);
+     	System.out.println(date);
+     	Exam e = edao.findByEid("E001");
+		return "index";
 	}
 }

@@ -288,9 +288,9 @@ public class HelloController {
 			}
 			request.getSession().setAttribute("grademessage", gts);//做题情况
 			request.getSession().setAttribute("grade", g.getGrade());//成绩
+			return "";
 		}
 		else{
-			request.getSession().setAttribute("grade", null);//没做过就传控制
 			List<Examdetail> et = etdao.findByEid(eid);			
 			st.setEd(et);		
 		}
