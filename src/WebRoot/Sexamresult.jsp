@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <%
   tool.studentTool st=(tool.studentTool)session.getAttribute("student");
-
+  
    SimpleDateFormat ft=new SimpleDateFormat("yyyy年MM月dd日");
    Date time= new Date();
    String date=ft.format(time);
@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div id="div_content_sclass_hwdetail" style="position:absolute;width:1740px;height:635px;left:0px;top:50px;display:block;">
               <div id="div_content_sclass_hwname" style="position:absolute;width:400px;height:30px;left:700px;top:0px;font-size:20px"><b>作业标题</b></div> 
                <div id="div_content_class_question" style="position:absolute;width:1740px;height:605px;left:0px;top:30px">
-        <form action="doexam.action" method="post">
+        <form action="">
         <table border="0" style="position:abusolute;left:650px;font-size:18px">
         <%
          for(int i=0;i<st.getEd().size();i++)
@@ -107,11 +107,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          {
           %>
            <tr bgcolor="#cccccc"><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
-              <td width="40%"style="padding-top:15px">=<input name="que<%=i %>"></td>
+              <td width="10%"style="padding-top:15px">=<input name="que<%=i %>"></td><td width="35%"><div id="answer<%=i %>"><input  value="<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
           <%}else{ %>
         
          <tr><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext() %></td>
-             <td width="40%"style="padding-top:15px">=<input name="que<%=i %>"></td>
+             <td width="10%"style="padding-top:15px">=<input name="que<%=i %>"></td><td width="35%"><div id="answer<%=i %>"><input  value="<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
              <%} %>
              
          <% } %>
