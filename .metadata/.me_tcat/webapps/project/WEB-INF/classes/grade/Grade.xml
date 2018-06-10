@@ -8,7 +8,10 @@
      select * from grade where eid = #{0}  and sid = #{1}
      </select>
      <insert id="add" parameterType="Grade">    
-        insert into Grade(eid,sid,grade,rightpercent)   
+        insert into grade(eid,sid,grade,rightpercent)   
         values(#{eid},#{sid},#{grade},#{rightpercent})    
     </insert>
+    <delete id="delete" parameterType="java.lang.String">    
+        delete from grade where eid= #{0}
+    </delete>
  </mapper>

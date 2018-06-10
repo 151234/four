@@ -11,4 +11,7 @@
         insert into gradedetail(sid,etid,isRight,sanswer)   
         values(#{sid},#{etid},#{isRight},#{sanswer})    
     </insert>
+    <delete id="delete" parameterType="java.lang.String">    
+        delete from gradedetail where eid= #{0}
+    </delete>
  </mapper>

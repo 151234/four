@@ -269,11 +269,29 @@ public class HelloController {
 	public String selectexam(HttpServletRequest request,ModelMap map)
 	{
 		String eid = request.getParameter("eid");
-		Exam e = edao.findByEid(eid);
-		List<Examdetail> et = etdao.findByEid(eid);
 		studentTool st = (studentTool)request.getSession().getAttribute("student");
+		Exam e = edao.findByEid(eid);
 		st.setCurrene(e);
-		st.setEd(et);
+		if(e.isIscommit()==true){
+			Grade g = gdao.findByid(eid, st.getS().getSid());
+			List<Examdetail> ed = etdao.findByEid(eid);
+			List<gradeTool> gts = new ArrayList<gradeTool>();
+			for(int i =0;i<ed.size();i++){
+				gradeTool gt = new gradeTool();
+				Gradedetail gd = gddao.findByid(st.getS().getSid(), ed.get(i).getEtid());
+				gt.setNumber(i+1);
+				gt.setSanswer(gd.getSanswer());
+				gt.setIsright(gd.isRight());
+				gt.setAnswer(ed.get(i).getAnswer());
+				gts.add(gt);
+			}
+			request.getSession().setAttribute("grademessage", gts);//做题情况
+			request.getSession().setAttribute("grade", g.getGrade());//成绩
+		}
+		else{
+			List<Examdetail> et = etdao.findByEid(eid);			
+			st.setEd(et);		
+		}
 		request.getSession().setAttribute("student", st);
 		return "Slogin";
 	}
@@ -290,6 +308,7 @@ public class HelloController {
 			Gradedetail gd = new Gradedetail();
 			gd.setSid(st.getS().getSid());
 			gd.setEtid(ed.getEtid());
+			gd.setEid(ed.getEid());
 			String a = "que" + i;
 			String answer = request.getParameter(a);
 			if(answer.equals(ed.getAnswer())){
@@ -378,7 +397,50 @@ public class HelloController {
 		tt.setCurrene(e);
 		request.getSession().setAttribute("teacher", tt);
 		return "Slogin";
-	}	
+	}
+	@RequestMapping("/deleteclass.action")//删除班级
+	public String deleteExam(HttpServletRequest request,ModelMap map)
+	{
+		String bid = request.getParameter("bid");
+		List<Exam> e = edao.findByBid(bid);
+		for(int i=0;i<e.size();i++){
+			gddao.delete(e.get(i).getEid());
+			gdao.delete(e.get(i).getEid());
+			etdao.delete(e.get(i).getEid());
+			edao.delete(e.get(i).getEid());
+		}
+		bjdao.delete(bid);
+		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+		List<Examdetail> allet = etdao.findAll();
+		tt.setAllet(allet);//更新题库
+		List<Banji> allbj = bjdao.findall();
+		if(allbj==null){
+			tt.setHaveBanji(false);
+		}
+		tt.setBj(allbj);//更新班级
+		List<Exam> alle = edao.findByTid(tt.getT().getTid());
+		tt.setExam(alle);
+		request.getSession().setAttribute("teacher", tt);
+		return "Slogin";
+	}
+	@RequestMapping("/deleteexam.action")//删除考卷
+	public String deleteexam(HttpServletRequest request,ModelMap map)
+	{
+		String eid = request.getParameter("eid");
+		Exam e = edao.findByEid(eid);
+		etdao.delete(eid);
+		edao.delete(eid);
+		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+		List<Exam> bjexam = edao.findByBid(tt.getCurrenbj().getBid());
+		tt.setBjexam(bjexam);
+		List<Examdetail> allet = etdao.findAll();
+		tt.setAllet(allet);//更新题库
+		List<Exam> alle = edao.findByTid(tt.getT().getTid());
+		tt.setExam(alle);
+		request.getSession().setAttribute("teacher", tt);
+		return "Slogin";
+	}
+	
 	@RequestMapping("/test.action")
 	public String test(HttpServletRequest request,ModelMap map)
 	{

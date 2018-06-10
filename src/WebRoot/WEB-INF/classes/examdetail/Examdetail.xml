@@ -13,4 +13,7 @@
       <select id="findAll"  resultType="Examdetail">
      select * from examdetail 
      </select>
+     <delete id="delete" parameterType="java.lang.String">    
+        delete from examdetail where eid= #{0}
+    </delete>
  </mapper>

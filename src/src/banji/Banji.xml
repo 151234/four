@@ -20,4 +20,7 @@
         insert into banji(bid,tid,bname,invite)   
         values(#{bid},#{tid},#{bname},#{invite})    
     </insert>
+    <delete id="delete" parameterType="java.lang.String">    
+        delete from banji where bid= #{0}
+    </delete>
  </mapper>

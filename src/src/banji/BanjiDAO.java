@@ -9,4 +9,5 @@ public interface BanjiDAO {
 	public Banji findByinvite(java.lang.String i);
 	public void add(Banji bj);
 	public List<Banji> findall();
+	public void delete(java.lang.String bid);
 }

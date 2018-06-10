@@ -5,6 +5,7 @@ public class Gradedetail {
 	private String etid;
 	private boolean isRight;
 	private String sanswer;
+	private String eid;
 	public String getSid() {
 		return sid;
 	}
@@ -28,6 +29,12 @@ public class Gradedetail {
 	}
 	public void setSanswer(String sanswer) {
 		this.sanswer = sanswer;
+	}
+	public String getEid() {
+		return eid;
+	}
+	public void setEid(String eid) {
+		this.eid = eid;
 	}
 	
 }

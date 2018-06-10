@@ -16,4 +16,7 @@
      <update id="update" parameterType="Exam" >    
         update exam set iscommit = #{iscommit} where eid = #{eid}
     </update>
+    <delete id="delete" parameterType="java.lang.String">    
+        delete from exam where eid= #{0}
+    </delete>
  </mapper>

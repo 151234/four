@@ -8,4 +8,6 @@ public interface ExamDAO {
 	public List<Exam> findByBid(java.lang.String bid);
 	public List<Exam> findByTid(java.lang.String tid);
 	public void update(Exam e);
+	public void delete(java.lang.String eid);
+	
 }
