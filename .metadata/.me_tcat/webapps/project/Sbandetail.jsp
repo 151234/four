@@ -146,8 +146,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              height+=120;
           }
           %>
-            <div id="div_content_sclass_chomework<%=i %>" style="position:absolute;width:230px;height:120px;left:<%=i*180+i*20+30%>px;top:
-            <%=height %>px;border:1px solid #666666;background:url(/iamges/3.jpg)" >
+            <div id="div_content_sclass_chomework<%=i %>" style="position:absolute;width:230px;height:120px;left:<%=i*255+20%>px;top:
+            <%=height %>px;background:url(images/work/<%=i %>.jpg);border:1px solid #666666;" >
                 <div id="div_content_sclass_chomework<%=i%>_t1" style="position:absolute;width:50px;height:30px;left:100px;top:10px;
                  font-size:10px"><b><%=st.getExam().get(i).getEid() %></b>
                 </div>

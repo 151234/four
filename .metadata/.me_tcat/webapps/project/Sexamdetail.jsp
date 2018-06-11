@@ -19,7 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
   </head>
   
   <body>
@@ -54,6 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    }
    
    %>
+   
     <div id="div_slogin_top" style="position:absolute;width:1920px;height:245px;left:0px;top:0px;border:1px solid;
     background-image:url(images/4.jpg)"></div>
     <%//左部菜单 %>
@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="div_slogin_state" style="position:absolute;width:1740px;height:50px;left:180px;top:245px;
     border-bottom:1px solid">
           <div id="div_slogin_state0" style="position:absolute;width:170px;height:50px;left:0px;top:15px;
-          text-align:center;font-size:16px"><b>欢迎，学生，<%=st.getS().getSname() %></b></div>
+          text-align:center;font-size:16px"><b>欢迎，学生，<%=st.getS().getSname()%></b></div>
            <div id="div_slogin_state1" style="position:absolute;width:270px;height:50px;left:570px;top:15px;
           text-align:center;font-size:16px">今天是 <%=date+","+week%></div>
            <div id="div_slogin_state2" style="position:absolute;width:120px;height:50px;left:1540px;top:15px;
@@ -97,27 +97,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div id="div_content_sclass_hwdetail" style="position:absolute;width:1740px;height:635px;left:0px;top:50px;display:block;">
               <div id="div_content_sclass_hwname" style="position:absolute;width:400px;height:30px;left:700px;top:0px;font-size:20px"><b>作业标题</b></div> 
                <div id="div_content_class_question" style="position:absolute;width:1740px;height:605px;left:0px;top:30px">
-        <form action="">
+        <form action="doexam.action" method="post">
         <table border="0" style="position:abusolute;left:650px;font-size:18px">
-        <%
-         for(int i=0;i<st.getEd().size();i++)
+             <%
+        int pagesize=5;
+	int curp=1;
+	int pagecount=1;
+	int rowcount=1;
+	if(request.getParameter("page")==null)
+			  {
+			  curp=1;
+			  }else{
+			  curp=Integer.parseInt(request.getParameter("page"));
+			  }
+	int thepage=(curp-1)*pagesize; 
+	rowcount=st.getEd().size();
+	 // System.out.println(rowcount);  
+	pagecount=(rowcount+pagesize-1)/pagesize;
+    int i=thepage;
+        while(i<(pagesize+thepage)&&rowcount!=0&&i<st.getEd().size())
          {     
          %>
          <%if(i%2==1)
          {
           %>
            <tr bgcolor="#cccccc"><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
-              <td width="30%"style="padding-top:15px">=<input name="que<%=i %>"></td>
-          <%}else{ %>
+              <td width="40%"style="padding-top:15px">=<input name="que<%=i %>"></td>
+          <%i++;}else{ %>
         
          <tr><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext() %></td>
-             <td width="30%"style="padding-top:15px">=<input name="que<%=i %>"></td>
-             <%} %>
+             <td width="40%"style="padding-top:15px">=<input name="que<%=i %>"></td>
+             <%i++;} %>
              
          <% } %>
+           <tr><td>当前第 <%=curp %>页    共<%=pagecount %>页</td></tr>
+   
+    <%if(curp>1)
+    {%>
+   <tr><th> <a href="Sexamdetail.jsp?page=<%=curp-1%>">上一页</a></th></tr> <%
+    }%>
+    <%if(curp<pagecount){ %>
+   <th>  <a href="Sexamdetail.jsp?page=<%=curp+1%>">下一页</a></th> <%
+    }%>
          </table>
                <div id="div_content_pratise_submit" style="position:absolute;width:30px;height=:20px;left:750px;top:500px">
-               <input type="submit" value="提交">
+               <input type="submit" value="提交" >
                </div>
            </form>
         </div>

@@ -16,4 +16,8 @@
      <delete id="delete" parameterType="java.lang.String">    
         delete from examdetail where eid= #{0}
     </delete>
+      <insert id="add" parameterType="Examdetail">    
+        insert into examdetail(etid,eid,context,answer)   
+        values(#{etid},#{eid},#{context},#{answer})    
+    </insert>
  </mapper>

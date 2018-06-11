@@ -263,7 +263,7 @@ public class HelloController {
 		Teacher t = tdao.findByTid(bj.getTid());
 		st.setCurrentt(t);
 		request.getSession().setAttribute("student", st);
-		return "Slogin";
+		return "Sbandetail";
 	}
 	@RequestMapping("/selectexam.action")//选择考卷
 	public String selectexam(HttpServletRequest request,ModelMap map)
@@ -288,14 +288,14 @@ public class HelloController {
 			}
 			request.getSession().setAttribute("grademessage", gts);//做题情况
 			request.getSession().setAttribute("grade", g.getGrade());//成绩
-			return "";
+			return "Sexamresult";
 		}
 		else{
 			List<Examdetail> et = etdao.findByEid(eid);			
 			st.setEd(et);		
 		}
 		request.getSession().setAttribute("student", st);
-		return "Slogin";
+		return "Sexamdetail";
 	}
 	@RequestMapping("/doexam.action")//提交考卷
 	public String doexam(HttpServletRequest request,ModelMap map)
@@ -339,7 +339,7 @@ public class HelloController {
 		gdao.add(g);
 		request.getSession().setAttribute("grademessage", gt);//做题情况
 		request.getSession().setAttribute("grade", grade);//成绩
-		return "Slogin";
+		return "Sexamresult";
 	}
 	
 	//以下是教师action
@@ -347,13 +347,19 @@ public class HelloController {
 	@RequestMapping("/createclass.action")//创建班级
 	public String createclass(HttpServletRequest request,ModelMap map)
 	{
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		List<Banji> allbj = bjdao.findall();
 		String bid = "B0";
 		if(allbj.size()<10){
-			bid = bid + "0" + allbj.size();
+			bid = bid + "0" + allbj.size()+1;
 		}
 		else{
-			bid = bid + allbj.size();
+			bid = bid + allbj.size()+1;
 		}
 		String bname = request.getParameter("bname");
 		teacherTool tt= (teacherTool)request.getSession().getAttribute("teacher");
@@ -383,7 +389,7 @@ public class HelloController {
 		List<Exam> e = edao.findByBid(bid);
 		tt.setBjexam(e);				
 		request.getSession().setAttribute("teacher", tt);
-		return "Slogin";
+		return "Tbandetail";
 	}
 	@RequestMapping("/intoexam.action")//选择考卷
 	public String intoexam(HttpServletRequest request,ModelMap map)
@@ -400,7 +406,7 @@ public class HelloController {
 	@RequestMapping("/deleteclass.action")//删除班级
 	public String deleteExam(HttpServletRequest request,ModelMap map)
 	{
-		String bid = request.getParameter("bid");
+		String bid = request.getParameter("deletebid");
 		List<Exam> e = edao.findByBid(bid);
 		for(int i=0;i<e.size();i++){
 			gddao.delete(e.get(i).getEid());
@@ -420,13 +426,16 @@ public class HelloController {
 		List<Exam> alle = edao.findByTid(tt.getT().getTid());
 		tt.setExam(alle);
 		request.getSession().setAttribute("teacher", tt);
-		return "Slogin";
+		return "Tlogin";
 	}
 	@RequestMapping("/deleteexam.action")//删除考卷
 	public String deleteexam(HttpServletRequest request,ModelMap map)
 	{
-		String eid = request.getParameter("eid");
+		String eid = request.getParameter("deleteeid");
+		System.out.println(eid);
 		Exam e = edao.findByEid(eid);
+		gddao.delete(eid);
+		gdao.delete(eid);
 		etdao.delete(eid);
 		edao.delete(eid);
 		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
@@ -437,9 +446,97 @@ public class HelloController {
 		List<Exam> alle = edao.findByTid(tt.getT().getTid());
 		tt.setExam(alle);
 		request.getSession().setAttribute("teacher", tt);
-		return "Slogin";
+		return "Tbandetail";
 	}
-	
+	@RequestMapping("/createexam.action")//创造考卷
+	public String createexam(HttpServletRequest request,ModelMap map)
+	{
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String choose = request.getParameter("chose");
+		if(choose.equals("1")){
+			List<Exam> alle = edao.findall();
+			int count = alle.size()+1;
+			String eid = "E0";
+			if(alle.size()<10){
+				eid = eid + "0" + count;
+			}
+			else{
+				eid = eid + count;
+			}
+			Exam e = new Exam();
+			e.setEid(eid);
+			teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+			e.setTid(tt.getT().getTid());
+			e.setBid(tt.getCurrenbj().getBid());
+			String date = request.getParameter("examdeadline");
+			String number = request.getParameter("number");
+			e.setEtime(date);
+			edao.add(e);
+			tt.setExam(edao.findByTid(tt.getT().getTid()));
+			tt.setBjexam(edao.findByBid(tt.getCurrenbj().getBid()));
+			tt.setCurrene(e);
+			request.getSession().setAttribute("teacher", tt);
+			request.getSession().setAttribute("number",number);
+			return "Tcreateexam1";
+		}
+		else{
+			teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+			List<Exam> e = edao.findexTid(tt.getT().getTid());
+			request.getSession().setAttribute("exam", e);
+			return "Tcreateexam2";
+		}		
+	}
+	@RequestMapping("/chooseExam.action")//创造考卷
+	public String chooseExam(HttpServletRequest request,ModelMap map)
+	{
+		String eid = request.getParameter("choseexam");
+		String date = request.getParameter("examdeadline");
+		Exam e = new Exam();
+		e.setEid(eid);
+		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+		e.setTid(tt.getT().getTid());
+		e.setBid(tt.getCurrenbj().getBid());
+		e.setEtime(date);
+		edao.add(e);
+		tt.setExam(edao.findByTid(tt.getT().getTid()));
+		tt.setBjexam(edao.findByBid(tt.getCurrenbj().getBid()));
+		tt.setCurrene(e);
+		request.getSession().setAttribute("number", tt);
+		return "Tbandetail";
+	}
+	@RequestMapping("/createed.action")//出题
+	public String createed(HttpServletRequest request,ModelMap map)
+	{
+		int number = Integer.parseInt((String) request.getSession().getAttribute("number"));
+		teacherTool tt = (teacherTool)request.getSession().getAttribute("teacher");
+		for(int i=0;i<number;i++){
+			List<Examdetail> allet = etdao.findAll();
+			int count = allet.size()+1;
+			String etid = "ET";
+			if(allet.size()<10){
+				etid = etid + "0" + count;
+			}
+			else{
+				etid = etid + count;
+			}
+			String timu = "question" + i;
+			String quea = "que" + i;
+			String context = request.getParameter(timu);
+			String answer = request.getParameter(quea);
+			Examdetail et = new Examdetail();
+			et.setEid(tt.getCurrene().getEid());
+			et.setEtid(etid);
+			et.setContext(context);
+			et.setAnswer(answer);
+			etdao.add(et);
+		}
+		return "Tbandetail";
+	}
 	@RequestMapping("/test.action")
 	public String test(HttpServletRequest request,ModelMap map)
 	{
