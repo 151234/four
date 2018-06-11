@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <%
-  tool.studentTool st=(tool.studentTool)session.getAttribute("student");
+  tool.teacherTool tt=(tool.teacherTool)session.getAttribute("teacher");
 
    SimpleDateFormat ft=new SimpleDateFormat("yyyy年MM月dd日");
    Date time= new Date();
@@ -64,17 +64,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div id="div_slogin_left_menu1" style="position:absolute;width:100px;height:30px;left:40px;top:65px;
           text-align:center;font-size:16px;"><a href="" onclick="myclassclick();return false;">我的班级</a></div>        
            <div id="div_slogin_left_menu2" style="position:absolute;width:100px;height:30px;left:40px;top:120px;
-          text-align:center;font-size:16px"><a href="" onclick="mypratiseclick();return false;">练习</a></div>
+          text-align:center;font-size:16px"><a href="" onclick="mypratiseclick();return false;">题库</a></div>
            <div id="div_slogin_left_menu3" style="position:absolute;width:180px;height:60px;left:0px;top:180px;
-          text-align:center;font-size:16px"><a href="">错题本</a></div>
-           <div id="div_slogin_left_menu4" style="position:absolute;width:180px;height:60px;left:0px;top:240px;
           text-align:center;font-size:16px"><a href="">我的学豆</a></div>
+        
     </div>
     <%//状态栏 %>
     <div id="div_slogin_state" style="position:absolute;width:1740px;height:50px;left:180px;top:245px;
     border-bottom:1px solid">
           <div id="div_slogin_state0" style="position:absolute;width:170px;height:50px;left:0px;top:15px;
-          text-align:center;font-size:16px"><b>欢迎，学生，<%=st.getS().getSname()%></b></div>
+          text-align:center;font-size:16px"><b>欢迎，老师，<%=tt.getT().getTname()%></b></div>
            <div id="div_slogin_state1" style="position:absolute;width:270px;height:50px;left:570px;top:15px;
           text-align:center;font-size:16px">今天是 <%=date+","+week%></div>
            <div id="div_slogin_state2" style="position:absolute;width:120px;height:50px;left:1540px;top:15px;
@@ -87,17 +86,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div id="div_content_sclass_link" style="posiont:absolute;width:1740px;height:50px;left:0px;top:0px;border-bottom:1px 
          solid #aaaaaa">
              <div id="div_content_sclass_link0" style="position:absolute;width:100px;height:50px;left:15px;top:15px;
-             font-size:14px;display:block;"><a href="Slogin.jsp">我加入的班级</a></div>
+             font-size:14px;display:block;"><a href="Tlogin.jsp">我加入的班级</a></div>
              <div id="div_content_sclass_link1" style="position:absolute;width:200px;height:50px;left:100px;top:15px;
-             font-size:14px;display:block;">><a href="Sbandetail.jsp"><%=st.getCurrentbj().getBname() %>-作业</a></div>
+             font-size:14px;display:block;">><a href="Tbandetail.jsp"><%=tt.getCurrenbj().getBname() %>-作业</a></div>
              <div id="div_content_sclass_link2" style="position:absolute;width:100px;height:50px;left:200px;top:15px;
-             font-size:14px;display:block;">><a href="Sexamdetail.jsp">作业详情</a></div>
+             font-size:14px;display:block;">><a href="Texamdetail.jsp">作业详情</a></div>
            </div>
         
              <div id="div_content_sclass_hwdetail" style="position:absolute;width:1740px;height:635px;left:0px;top:50px;display:block;">
               <div id="div_content_sclass_hwname" style="position:absolute;width:400px;height:30px;left:700px;top:0px;font-size:20px"><b>作业标题</b></div> 
                <div id="div_content_class_question" style="position:absolute;width:1740px;height:605px;left:0px;top:30px">
-        <form action="doexam.action" method="post">
+        <form action="createexam.action" method="post">
         <table border="0" style="position:abusolute;left:650px;font-size:18px">
              <%
         int pagesize=5;
@@ -111,21 +110,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  curp=Integer.parseInt(request.getParameter("page"));
 			  }
 	int thepage=(curp-1)*pagesize; 
-	rowcount=st.getEd().size();
+	rowcount=tt.getBjexam().size();
 	 // System.out.println(rowcount);  
 	pagecount=(rowcount+pagesize-1)/pagesize;
     int i=thepage;
-        while(i<(pagesize+thepage)&&rowcount!=0&&i<st.getEd().size())
+        while(i<(pagesize+thepage)&&rowcount!=0&&i<tt.getBjexam().size())
          {     
          %>
          <%if(i%2==1)
          {
           %>
-           <tr bgcolor="#cccccc"><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
+           <tr bgcolor="#cccccc"><td width="15%" style="padding-left:450px;padding-top:15px">题目<%=i+1 +". "%>
+           <input type="text" name="question<%=i%>"></td>
               <td width="40%"style="padding-top:15px">=<input name="que<%=i %>"></td>
           <%i++;}else{ %>
         
-         <tr><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext() %></td>
+         <tr><td width="15%" style="padding-left:450px;padding-top:15px">题目<%=i+1 +". "%>
+         <input type="text" name="question<%=i %>"></td>
              <td width="40%"style="padding-top:15px">=<input name="que<%=i %>"></td>
              <%i++;} %>
              
@@ -134,14 +135,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    
     <%if(curp>1)
     {%>
-   <tr><th> <a href="Sexamdetail.jsp?page=<%=curp-1%>">上一页</a></th></tr> <%
+   <tr><th> <a href="Tcreateexam1.jsp?page=<%=curp-1%>">上一页</a></th></tr> <%
     }%>
     <%if(curp<pagecount){ %>
-   <th>  <a href="Sexamdetail.jsp?page=<%=curp+1%>">下一页</a></th> <%
+   <th>  <a href="Tcreateexam1.jsp?page=<%=curp+1%>">下一页</a></th> <%
     }%>
          </table>
                <div id="div_content_pratise_submit" style="position:absolute;width:30px;height=:20px;left:750px;top:500px">
-               <input type="submit" value="提交" >
+               <input type="submit" value="发布" >
                </div>
            </form>
         </div>

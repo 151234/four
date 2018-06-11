@@ -24,7 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <%
   tool.studentTool st=(tool.studentTool)session.getAttribute("student");
-  
+  ArrayList<tool.gradeTool> gt=(ArrayList<tool.gradeTool>)session.getAttribute("grademessage");
+ int g=Integer.parseInt((session.getAttribute("grade").toString()));
    SimpleDateFormat ft=new SimpleDateFormat("yyyy年MM月dd日");
    Date time= new Date();
    String date=ft.format(time);
@@ -100,24 +101,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form action="">
         <table border="0" style="position:abusolute;left:650px;font-size:18px">
         <%
-         for(int i=0;i<st.getEd().size();i++)
+        int pagesize=5;
+	int curp=1;
+	int pagecount=1;
+	int rowcount=1;
+	if(request.getParameter("page")==null)
+			  {
+			  curp=1;
+			  }else{
+			  curp=Integer.parseInt(request.getParameter("page"));
+			  }
+	int thepage=(curp-1)*pagesize; 
+	rowcount=st.getEd().size();
+	 // System.out.println(rowcount);  
+	pagecount=(rowcount+pagesize-1)/pagesize;
+    int i=thepage;
+        while(i<(pagesize+thepage)&&rowcount!=0&&i<st.getEd().size())
          {     
          %>
          <%if(i%2==1)
          {
+         if(gt.get(i).isIsright())
+         {
           %>
            <tr bgcolor="#cccccc"><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
-              <td width="10%"style="padding-top:15px">=<input name="que<%=i %>"></td><td width="35%"><div id="answer<%=i %>"><input  value="<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
-          <%}else{ %>
-        
-         <tr><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext() %></td>
-             <td width="10%"style="padding-top:15px">=<input name="que<%=i %>"></td><td width="35%"><div id="answer<%=i %>"><input  value="<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
-             <%} %>
+              <td width="10%"style="padding-top:15px">=<input name="que<%=i %>" value="<%=gt.get(i).getSanswer() %> " style="disable:true;"></td><td width="35%"><div id="answer<%=i %>"style="font-size:14px"><input  value="正确答案：<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
+          <%i++;}else
+          {%>
+          <tr bgcolor="#cccccc"><td width="15%" style="padding-left:450px;padding-top:15px;color:#ff0000"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
+              <td width="10%"style="padding-top:15px">=<input name="que<%=i %>" value="<%=gt.get(i).getSanswer() %> " style="disable:true;"></td><td width="35%"><div id="answer<%=i %>"style="font-size:14px"><input  value="正确答案：<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
+         <%i++;} %>
+          <% }else{   
+          if(gt.get(i).isIsright())
+         {%>
+              <tr><td width="15%" style="padding-left:450px;padding-top:15px"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
+              <td width="10%"style="padding-top:15px">=<input name="que<%=i %>" value="<%=gt.get(i).getSanswer() %> " style="disable:true;"></td><td width="35%"><div id="answer<%=i %>"style="font-size:14px"><input  value="正确答案：<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
+          <%i++;}else
+          {%>
+          <tr ><td width="15%" style="padding-left:450px;padding-top:15px;color:#ff0000"><%=i+1 +". "+st.getEd().get(i).getContext()%></td>
+              <td width="10%"style="padding-top:15px">=<input name="que<%=i %>" value="<%=gt.get(i).getSanswer() %> " style="disable:true;"></td><td width="35%"><div id="answer<%=i %>" style="font-size:14px"><input  value="正确答案：<%=st.getEd().get(i).getAnswer() %>" style="disable:true;display:block;background:transparent;border:0px;"></div></td>
+         <%i++;} %>
              
-         <% } %>
+         <% }} %>
+          <tr><td>当前第 <%=curp %>页    共<%=pagecount %>页</td></tr>
+   
+    <%if(curp>1)
+    {%>
+   <tr><th> <a href="Sexamresult.jsp?page=<%=curp-1%>">上一页</a></th></tr> <%
+    }%>
+    <%if(curp<pagecount){ %>
+   <th>  <a href="Sexamresult.jsp?page=<%=curp+1%>">下一页</a></th> <%
+    }%>
          </table>
-               <div id="div_content_pratise_submit" style="position:absolute;width:30px;height=:20px;left:750px;top:500px">
-               <input type="submit" value="提交" >
+               <div id="div_content_pratise_result" style="position:absolute;width:80px;height=:20px;left:750px;top:500px">
+              正确率<%=g %>
                </div>
            </form>
         </div>
