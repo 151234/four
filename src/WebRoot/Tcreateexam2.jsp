@@ -111,7 +111,7 @@ function confirmDel()
              font-size:14px;display:block;">><a href="Tbandetail.jsp"><%=tt.getBj().get(0).getBname() %>-作业</a></div>
              <div id="div_content_sclass_link2" style="position:absolute;width:100px;height:50px;left:170px;top:15px;
              font-size:14px;display:none;">><a href="">作业详情</a></div>
-         </div>
+        
         <form action="" method="post">
                 <% int hw_count=0;
             hw_count=tt.getBjexam().size();
@@ -134,17 +134,18 @@ function confirmDel()
                  font-size:10px"><b><%=e.get(i).getEid() %></b>
                 </div>
                 <div id="div_content_sclass_chomework<%=i%>_t2" style="position:absolute;width:40px;height:20px;left:180px;top:90px;
-                 font-size:10px"><a href="intoexam.action?eid=<%=e.get(i).getEid() %>">进入</a></div>
-                 </div>
-                 <div id="div_content_sclass_c<%=i%>"style="position:absolute;width:30px;height:14px;left:115px;top:231px;">
+                 font-size:10px"><a href="intoexam.action?eid=<%=e.get(i).getEid() %>">进入</a></div>        
+                 <div id="div_content_sclass_c<%=i%>"style="position:absolute;width:30px;height:14px;left:115px;top:121px;">
                  <input type="radio" name="choseexam" value="<%=e.get(i).getEid() %>">
                  </div>
-         <% } %>  
-            </div>
+        </div> <% } %>  
+            
             <div id="div_content_pratise_submit" style="position:absolute;width:300px;height=:200px;left:750px;top:500px">
                                        截至时间 <input type="text" name="examdeadline"><br>
-               <input type="submit" value="发布" >
+               <input type="submit" value="发布">
                </div>
+                </div>
        </form>
+        </div>
   </body>
 </html>
