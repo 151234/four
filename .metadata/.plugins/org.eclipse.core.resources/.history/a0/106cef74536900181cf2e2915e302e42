@@ -1,5 +1,0 @@
-package sb;
-
-public interface SbDAO {
-
-}

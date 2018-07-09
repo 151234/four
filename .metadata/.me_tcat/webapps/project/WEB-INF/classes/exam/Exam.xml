@@ -13,6 +13,12 @@
      <select id="findByTid" parameterType="java.lang.String" resultType="Exam">
      select * from exam where tid = #{0}  
      </select>
+     <select id="findByEandT" parameterType="java.lang.String" resultType="Exam">
+     select * from exam where eid = #{0} and tid = #{1}
+     </select>
+     <select id="findByEandB" parameterType="java.lang.String" resultType="Exam">
+     select * from exam where eid = #{0} and bid = #{1}
+     </select>
       <select id="findall" resultType="Exam">
      select * from exam
      </select>

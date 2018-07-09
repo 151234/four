@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write(" \r\n");
       out.write("  if(confirm(\"确定删除作业吗？\"))\r\n");
       out.write("  {\r\n");
-      out.write("    document.forms.deletekaoshi.submit();\r\n");
+      out.write("    \r\n");
       out.write("  }\r\n");
       out.write(" }\r\n");
       out.write(" function showde()\r\n");
@@ -246,13 +246,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                 font-size:10px\"><b>截止时间：");
       out.print(tt.getBjexam().get(i).getEtime() );
       out.write("</b></div>\r\n");
-      out.write("                   <div id=\"div_content_tclass_cstate_delete\" style=\"position:absolute;width:30px;height:20px;left:180px;top:10px;\">\r\n");
-      out.write("                 <form action=\"deleteexam.action\" method=\"post\" name=\"deletekaoshi\">\r\n");
-      out.write("                 <input name=\"deleteeid\" type=\"hidden\" value=\"");
-      out.print(tt.getBjexam().get(i).getEid());
-      out.write("\" >\r\n");
-      out.write("                 <input  type=\"button\" value=\"删除\" style=\"background-color:#353c44; color:#e1e2e3\" onClick=\"confirmDel()\">\r\n");
-      out.write("                 </form>\r\n");
+      out.write("                   <div id=\"div_content_tclass_cstate_delete\" style=\"position:absolute;width:50px;height:20px;left:180px;top:10px;\">\r\n");
+      out.write("                <a href=\"deleteexam.action?deleteeid=");
+      out.print(tt.getBjexam().get(i).getEid() );
+      out.write("\" onclick=\"confirmDel()\">删除</a>\r\n");
       out.write("            \t</div>\r\n");
       out.write("         </div> ");
  } 

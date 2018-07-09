@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\r\n");
       out.write("  </head> \r\n");
       out.write("  <body style=\"background:url(images/3.jpg)\" background-repeat:no-repeat ;background-size:100% ; background-attachment: fixed;\">\r\n");
-      out.write("     <div id=\"div_regist\" style=\"position:absolute; width:500px; height:305px;z-index:1;left:780px;top:250px;\">\r\n");
+      out.write("     <div id=\"div_regist\" style=\"position:absolute; width:500px; height:305px;z-index:1;left:780px;top:350px;\">\r\n");
       out.write("   <form action=\"regist.action\" method=\"post\">\r\n");
       out.write("    <table  border=\"0\" cellpadding=\"2\" cellspacing=\"0\">\r\n");
       out.write("     <caption align=\"center\"><h2>注册帐号</h2></caption>\r\n");

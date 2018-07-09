@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="four"
+  id="myeclipse.1529464478839"
+  context-root="/four"
+  j2ee-spec="6.0"
+  archive="four.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

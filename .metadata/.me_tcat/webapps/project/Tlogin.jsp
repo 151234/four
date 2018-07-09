@@ -137,7 +137,7 @@ function confirmDel()
  
   if(confirm("确定删除班级吗？"))
   {
-    document.forms.deletebanji.submit();
+    
   }
  }
 </script>
@@ -150,12 +150,9 @@ function confirmDel()
                  font-size:10px"><b>邀请码:<%=tt.getBj().get(i).getInvite() %></b></div>
                 <div id="div_content_tclass_cstate_in" style="position:absolute;width:40px;height:20px;left:180px;top:80px;
                  font-size:10px"><a href="intoclass.action?bid=<%=tt.getBj().get(i).getBid() %>">进入</a></div>
-                 <div id="div_content_tclass_cstate_delete" style="position:absolute;width:30px;height:20px;left:180px;top:10px;">
-                 <form action="deleteclass.action" method="post" name="deletebanji">
-                 <input name="deletebid" type="hidden" value="<%=tt.getBj().get(i).getBid() %>" >
-                 <input  type="button" value="删除" style="background-color:#353c44; color:#e1e2e3" onClick="confirmDel()">
-                 </form>
-                 </div>
+                 <div id="div_content_tclass_cstate_delete" style="position:absolute;width:50px;height:20px;left:180px;top:10px;">
+                <a href="deleteclass.action?deletebid=<%=tt.getBj().get(i).getBid() %>" onclick="confirmDel()">删除</a>
+            	</div>
             </div>
           <%} %>
           </div>

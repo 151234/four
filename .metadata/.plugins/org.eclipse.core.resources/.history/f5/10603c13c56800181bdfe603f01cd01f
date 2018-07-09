@@ -1,7 +1,0 @@
-package banji;
-
-
-public interface BanjiDAO {
-	public Banji findByBid(java.lang.String bid);
-	public Banji findBySid(java.lang.String sid);
-}

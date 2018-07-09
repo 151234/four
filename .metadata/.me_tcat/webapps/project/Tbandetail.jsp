@@ -25,7 +25,7 @@ function confirmDel()
  
   if(confirm("确定删除作业吗？"))
   {
-    document.forms.deletekaoshi.submit();
+    
   }
  }
  function showde()
@@ -150,11 +150,8 @@ function confirmDel()
                  font-size:10px"><a href="intoexam.action?eid=<%=tt.getBjexam().get(i).getEid() %>">进入</a></div>
                  <div id="div_content_sclass_chomework<%=i%>_t3" style="position:absolute;width:140px;height:20px;left:0px;top:90px;
                  font-size:10px"><b>截止时间：<%=tt.getBjexam().get(i).getEtime() %></b></div>
-                   <div id="div_content_tclass_cstate_delete" style="position:absolute;width:30px;height:20px;left:180px;top:10px;">
-                 <form action="deleteexam.action" method="post" name="deletekaoshi">
-                 <input name="deleteeid" type="hidden" value="<%=tt.getBjexam().get(i).getEid()%>" >
-                 <input  type="button" value="删除" style="background-color:#353c44; color:#e1e2e3" onClick="confirmDel()">
-                 </form>
+                   <div id="div_content_tclass_cstate_delete" style="position:absolute;width:50px;height:20px;left:180px;top:10px;">
+                <a href="deleteexam.action?deleteeid=<%=tt.getBjexam().get(i).getEid() %>" onclick="confirmDel()">删除</a>
             	</div>
          </div> <% } %>  
            
